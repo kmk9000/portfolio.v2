@@ -18,6 +18,41 @@ function App() {
     };
   }, []);
 
+  const [activeSection, setActiveSection] = useState("about");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const mainContainer = document.querySelector(".main-container");
+      if (!mainContainer) return;
+
+      const sections = ["about", "projects", "contact"];
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+
+          if (rect.top >= 0 && rect.top < 250) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    const mainContainer = document.querySelector(".main-container");
+    if (mainContainer) {
+      mainContainer.addEventListener("scroll", handleScroll);
+      handleScroll();
+    }
+
+    return () => {
+      if (mainContainer) {
+        mainContainer.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="relative flex min-h-screen min-w-full">
       <div
@@ -26,7 +61,10 @@ function App() {
           background: `radial-gradient(200px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
         }}
       />
-      <Header />
+      <Header
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+      />
       <Main />
     </div>
   );

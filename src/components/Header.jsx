@@ -1,6 +1,10 @@
 import Typography from "@mui/material/Typography";
 
-export default function Header() {
+export default function Header({ activeSection, setActiveSection }) {
+  const handleClick = (section) => {
+    setActiveSection(section);
+  };
+
   return (
     <div className="flex flex-col bg-blue-950 text-white p-12 w-1/4">
       {/* bg-blue-600 */}
@@ -18,27 +22,42 @@ export default function Header() {
             <li>
               <a
                 href="#about"
+                onClick={() => handleClick("about")}
                 className="hover:underline flex items-center gap-2 group"
               >
-                <div className="flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-30 duration-300"></div>
+                <div
+                  className={`flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-30 duration-300 ${
+                    activeSection === "about" ? "w-30" : "w-20"
+                  }`}
+                ></div>
                 <div className="flex items-center py-1">About</div>
               </a>
             </li>
             <li>
               <a
                 href="#projects"
+                onClick={() => handleClick("projects")}
                 className="hover:underline flex items-center gap-2 group"
               >
-                <div className="flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-30 duration-300"></div>
+                <div
+                  className={`flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-30 duration-300 ${
+                    activeSection === "projects" ? "w-30" : "w-20"
+                  }`}
+                ></div>
                 <div className="flex items-center py-1">Projects</div>
               </a>
             </li>
             <li>
               <a
                 href="#contact"
+                onClick={() => handleClick("contact")}
                 className="hover:underline flex items-center gap-2 group"
               >
-                <div className="flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-30 duration-300"></div>
+                <div
+                  className={`flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-30 duration-300 ${
+                    activeSection === "contact" ? "w-30" : "w-20"
+                  }`}
+                ></div>
                 <div className="flex items-center py-1">Contact</div>
               </a>
             </li>
