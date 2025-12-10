@@ -14,18 +14,30 @@ export default function Header() {
         <nav className="mt-2">
           <ul className="space-y-2">
             <li>
-              <a href="#about" className="hover:underline">
-                About
+              <a
+                href="#about"
+                className="hover:underline flex items-center gap-2 group"
+              >
+                <div className="flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-40 duration-300"></div>
+                <div className="flex items-center py-1">About</div>
               </a>
             </li>
             <li>
-              <a href="#projects" className="hover:underline">
-                Projects
+              <a
+                href="#projects"
+                className="hover:underline flex items-center gap-2 group"
+              >
+                <div className="flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-40 duration-300"></div>
+                <div className="flex items-center py-1">Projects</div>
               </a>
             </li>
             <li>
-              <a href="#contact" className="hover:underline">
-                Contact
+              <a
+                href="#contact"
+                className="hover:underline flex items-center gap-2 group"
+              >
+                <div className="flex align-items-center h-1 w-20 bg-[#00b4d8] origin-left transform group-hover:w-40 duration-300"></div>
+                <div className="flex items-center py-1">Contact</div>
               </a>
             </li>
           </ul>

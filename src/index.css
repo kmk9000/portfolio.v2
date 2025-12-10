@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* :root {
+:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -14,7 +14,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+h3 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
