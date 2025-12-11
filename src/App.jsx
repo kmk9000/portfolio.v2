@@ -26,18 +26,40 @@ function App() {
       if (!mainContainer) return;
 
       const sections = ["about", "projects", "contact"];
+      const containerRect = mainContainer.getBoundingClientRect();
+
+      // Check if we're near the bottom of the scroll
+      const isNearBottom =
+        mainContainer.scrollTop + mainContainer.clientHeight >=
+        mainContainer.scrollHeight - 50; // 50px threshold
+
+      // If near bottom, activate the last section
+      if (isNearBottom) {
+        setActiveSection("contact");
+        return;
+      }
+
+      // Otherwise, use the visibility calculation
+      let currentSection = "about";
+      let maxVisibility = 0;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
 
-          if (rect.top >= 0 && rect.top < 250) {
-            setActiveSection(section);
-            break;
+          // Calculate how much of the section is visible relative to container
+          const visibleTop = Math.max(rect.top, containerRect.top);
+          const visibleBottom = Math.min(rect.bottom, containerRect.bottom);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+          if (visibleHeight > maxVisibility) {
+            maxVisibility = visibleHeight;
+            currentSection = section;
           }
         }
       }
+      setActiveSection(currentSection);
     };
 
     const mainContainer = document.querySelector(".main-container");
@@ -56,7 +78,7 @@ function App() {
   return (
     <div className="relative flex min-h-screen min-w-full">
       <div
-        className="pointer-events-none fixed inset-0 z-30 transition duration-300"
+        className="pointer-events-none fixed inset-0 z-0 transition duration-300"
         style={{
           background: `radial-gradient(200px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
         }}
