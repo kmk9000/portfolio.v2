@@ -60,7 +60,13 @@ export default function Projects() {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <div className="bg-black/20 p-6 rounded-xl shadow-lg">
+          <div
+            className="bg-black/20 p-6 r            
+            backdrop-blur-xl      
+            rounded-xl           
+            border border-white/20 
+            shadow-2xl"
+          >
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               rutrum libero nec metus mollis mattis. Integer ultricies felis a

@@ -20,63 +20,65 @@ function App() {
 
   const [activeSection, setActiveSection] = useState("about");
 
+  // effect made with help from gemini 13.12.2025
   useEffect(() => {
+    const mainContainer = document.querySelector(".main-container");
+    if (!mainContainer) return;
+
+    // Define the trigger line offset (e.g., 25% down from the container's top)
+    const TRIGGER_OFFSET = 0.25; // 25%
+
     const handleScroll = () => {
-      const mainContainer = document.querySelector(".main-container");
-      if (!mainContainer) return;
+      const containerTop = mainContainer.getBoundingClientRect().top;
+      const containerHeight = mainContainer.clientHeight;
+      const triggerLineY = containerTop + containerHeight * TRIGGER_OFFSET;
 
-      const sections = ["about", "projects", "contact"];
-      const containerRect = mainContainer.getBoundingClientRect();
+      let currentSection = "about"; // Default to 'about'
 
-      // Check if we're near the bottom of the scroll
-      const isNearBottom =
-        mainContainer.scrollTop + mainContainer.clientHeight >=
-        mainContainer.scrollHeight - 50; // 50px threshold
+      // 1. **Priority Check for Top of Page (About)**
+      if (mainContainer.scrollTop === 0) {
+        currentSection = "about";
+      } else {
+        // 2. Check for other sections by finding the one whose top is ABOVE the trigger line
+        const sections = ["about", "projects", "contact"];
 
-      // If near bottom, activate the last section
-      if (isNearBottom) {
-        setActiveSection("contact");
-        return;
-      }
+        // Find the last section whose top edge has passed the trigger line
+        for (const sectionId of sections) {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            const rect = element.getBoundingClientRect();
 
-      // Otherwise, use the visibility calculation
-      let currentSection = "about";
-      let maxVisibility = 0;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-
-          // Calculate how much of the section is visible relative to container
-          const visibleTop = Math.max(rect.top, containerRect.top);
-          const visibleBottom = Math.min(rect.bottom, containerRect.bottom);
-          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-
-          if (visibleHeight > maxVisibility) {
-            maxVisibility = visibleHeight;
-            currentSection = section;
+            // If the section's top boundary is at or above the trigger line,
+            // it is the current active section.
+            if (rect.top <= triggerLineY) {
+              currentSection = sectionId;
+            } else {
+              // Since sections are ordered, we can stop checking when one falls below the line
+              break;
+            }
           }
         }
       }
-      setActiveSection(currentSection);
-    };
 
-    const mainContainer = document.querySelector(".main-container");
-    if (mainContainer) {
-      mainContainer.addEventListener("scroll", handleScroll);
-      handleScroll();
-    }
-
-    return () => {
-      if (mainContainer) {
-        mainContainer.removeEventListener("scroll", handleScroll);
+      // 3. Update state and URL only if the section has actually changed
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+        history.replaceState(null, "", `#${currentSection}`);
       }
     };
-  }, []);
+
+    // Attach the scroll listener
+    mainContainer.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run once on mount to set the initial state
+
+    // Cleanup the scroll listener
+    return () => {
+      mainContainer.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection]); // Depend on activeSection to ensure the comparison is always up-to-date
 
   return (
-    <div className="relative flex min-h-screen min-w-full">
+    <div className="relative flex flex-col md:flex-row min-h-screen min-w-full">
       <div
         className="pointer-events-none fixed inset-0 z-0 transition duration-300"
         style={{

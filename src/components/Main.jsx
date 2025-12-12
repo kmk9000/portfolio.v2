@@ -3,7 +3,7 @@ import Projects from "./Projects";
 
 export default function Main() {
   return (
-    <div className="main-container text-white  bg-gray-900 items-center px-25 py-12 w-3/4 scroll-auto h-screen overflow-auto">
+    <div className="main-container text-white  bg-gray-900 items-center md:px-25 md:py-12 px-6 scroll-auto h-screen overflow-auto sm:p-6 lg:p-12 w-full xl:w-3/4">
       {/* text-gray-800 bg-blue-300 */}
       <Typography variant="h5" gutterBottom>
         <a id="about">About</a>
