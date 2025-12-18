@@ -23,7 +23,7 @@ export default function Projects() {
         aria-labelledby={`simple-tab-${index}`}
         {...other}
       >
-        {value === index && <Box sx={{ px: 1, py: 3 }}>{children}</Box>}
+        {value === index && <Box sx={{ px: 0, py: 3 }}>{children}</Box>}
       </div>
     );
   }
@@ -40,11 +40,13 @@ export default function Projects() {
     };
   }
   return (
-    <>
-      <Typography variant="h5" gutterBottom>
+    <div className="z-0">
+      <Typography variant="h5" gutterBottom mt={4}>
         <a id="projects">Projects</a>
       </Typography>
-      <p>This is the project section of my portfolio.</p>
+      <Typography variant="body1" gutterBottom>
+        This is the project section of my portfolio.
+      </Typography>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
@@ -67,7 +69,7 @@ export default function Projects() {
             border border-white/5
             shadow-2xl"
           >
-            <p>
+            <Typography variant="body2" gutterBottom>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               rutrum libero nec metus mollis mattis. Integer ultricies felis a
               condimentum malesuada. Praesent nunc dolor, dictum quis fringilla
@@ -83,8 +85,8 @@ export default function Projects() {
               faucibus accumsan. Maecenas dictum ultricies tincidunt.
               Suspendisse a nisi vitae leo dignissim elementum. Vivamus
               malesuada libero vitae odio convallis tincidunt.
-            </p>
-            <p>
+            </Typography>
+            <Typography variant="body2" gutterBottom>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Nulla vitae consectetur nisi,
               quis tempor orci. Pellentesque ante est, posuere vitae iaculis sit
@@ -92,8 +94,8 @@ export default function Projects() {
               dis parturient montes, nascetur ridiculus mus. Quisque id aliquam
               neque. Nullam rhoncus libero id sollicitudin scelerisque. Fusce
               nec cursus nunc.
-            </p>
-            <p>
+            </Typography>
+            <Typography variant="body2">
               Quisque porttitor semper finibus. Aliquam a lectus a tellus
               finibus efficitur. Cras ultricies dolor vitae diam ullamcorper
               sollicitudin. Integer at convallis sapien. Nam ut tortor a nunc
@@ -105,7 +107,7 @@ export default function Projects() {
               nostra, per inceptos himenaeos. Mauris lacinia enim sed nisl
               eleifend, eu finibus nisl condimentum. Etiam aliquet massa vel
               sapien feugiat sagittis.
-            </p>
+            </Typography>
           </div>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
@@ -116,7 +118,7 @@ export default function Projects() {
             border border-white/5
             shadow-2xl"
           >
-            <p>
+            <Typography variant="body2" gutterBottom>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Nulla vitae consectetur nisi,
               quis tempor orci. Pellentesque ante est, posuere vitae iaculis sit
@@ -124,8 +126,8 @@ export default function Projects() {
               dis parturient montes, nascetur ridiculus mus. Quisque id aliquam
               neque. Nullam rhoncus libero id sollicitudin scelerisque. Fusce
               nec cursus nunc.
-            </p>
-            <p>
+            </Typography>
+            <Typography variant="body2">
               Quisque porttitor semper finibus. Aliquam a lectus a tellus
               finibus efficitur. Cras ultricies dolor vitae diam ullamcorper
               sollicitudin. Integer at convallis sapien. Nam ut tortor a nunc
@@ -137,7 +139,7 @@ export default function Projects() {
               nostra, per inceptos himenaeos. Mauris lacinia enim sed nisl
               eleifend, eu finibus nisl condimentum. Etiam aliquet massa vel
               sapien feugiat sagittis.
-            </p>
+            </Typography>
           </div>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
@@ -148,7 +150,7 @@ export default function Projects() {
             border border-white/5
             shadow-2xl"
           >
-            <p>
+            <Typography variant="body2" gutterBottom>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Nulla vitae consectetur nisi,
               quis tempor orci. Pellentesque ante est, posuere vitae iaculis sit
@@ -156,8 +158,8 @@ export default function Projects() {
               dis parturient montes, nascetur ridiculus mus. Quisque id aliquam
               neque. Nullam rhoncus libero id sollicitudin scelerisque. Fusce
               nec cursus nunc.
-            </p>
-            <p>
+            </Typography>
+            <Typography variant="body2" gutterBottom>
               Quisque porttitor semper finibus. Aliquam a lectus a tellus
               finibus efficitur. Cras ultricies dolor vitae diam ullamcorper
               sollicitudin. Integer at convallis sapien. Nam ut tortor a nunc
@@ -169,8 +171,8 @@ export default function Projects() {
               nostra, per inceptos himenaeos. Mauris lacinia enim sed nisl
               eleifend, eu finibus nisl condimentum. Etiam aliquet massa vel
               sapien feugiat sagittis.
-            </p>
-            <p>
+            </Typography>
+            <Typography variant="body2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               rutrum libero nec metus mollis mattis. Integer ultricies felis a
               condimentum malesuada. Praesent nunc dolor, dictum quis fringilla
@@ -186,10 +188,10 @@ export default function Projects() {
               faucibus accumsan. Maecenas dictum ultricies tincidunt.
               Suspendisse a nisi vitae leo dignissim elementum. Vivamus
               malesuada libero vitae odio convallis tincidunt.
-            </p>
+            </Typography>
           </div>
         </CustomTabPanel>
       </Box>
-    </>
+    </div>
   );
 }

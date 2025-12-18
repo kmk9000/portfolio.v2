@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
-// import theme from "./theme.js";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme.js";
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -83,19 +84,21 @@ function App() {
   }, [activeSection]); // Depend on activeSection to ensure the comparison is always up-to-date
 
   return (
-    <div className="relative flex flex-col md:flex-row min-h-screen min-w-full">
-      <div
-        className="pointer-events-none fixed inset-0 z-0 transition duration-300"
-        style={{
-          background: `radial-gradient(200px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
-        }}
-      />
-      <Header
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-      />
-      <Main />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="relative flex flex-col md:flex-row min-h-screen min-w-full">
+        <div
+          className="pointer-events-none fixed inset-0 z-0 transition duration-300"
+          style={{
+            background: `radial-gradient(200px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+          }}
+        />
+        <Header
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
+        <Main />
+      </div>
+    </ThemeProvider>
   );
 }
 

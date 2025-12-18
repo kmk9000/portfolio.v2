@@ -9,8 +9,10 @@ export default function Main() {
       <Typography variant="h5" sx={{ mt: 4 }} gutterBottom>
         <a id="about">About</a>
       </Typography>
-      <p>This is the about section of my portfolio.</p>
-      <p>
+      <Typography variant="body1" gutterBottom>
+        This is the about section of my portfolio
+      </Typography>
+      <Typography variant="body2" gutterBottom>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum
         libero nec metus mollis mattis. Integer ultricies felis a condimentum
         malesuada. Praesent nunc dolor, dictum quis fringilla vitae, semper
@@ -25,13 +27,15 @@ export default function Main() {
         lorem quis orci faucibus accumsan. Maecenas dictum ultricies tincidunt.
         Suspendisse a nisi vitae leo dignissim elementum. Vivamus malesuada
         libero vitae odio convallis tincidunt.
-      </p>
+      </Typography>
       <Projects />
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" gutterBottom mt={3}>
         <a id="contact">Contact</a>
       </Typography>
-      <p>This is the contact section of my portfolio.</p>
-      <p>
+      <Typography variant="body1" gutterBottom>
+        This is the contact section of my portfolio.
+      </Typography>
+      <Typography variant="body2" gutterBottom>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum
         libero nec metus mollis mattis. Integer ultricies felis a condimentum
         malesuada. Praesent nunc dolor, dictum quis fringilla vitae, semper
@@ -46,16 +50,16 @@ export default function Main() {
         lorem quis orci faucibus accumsan. Maecenas dictum ultricies tincidunt.
         Suspendisse a nisi vitae leo dignissim elementum. Vivamus malesuada
         libero vitae odio convallis tincidunt.
-      </p>
-      <p>
+      </Typography>
+      <Typography variant="body2" gutterBottom>
         Pellentesque habitant morbi tristique senectus et netus et malesuada
         fames ac turpis egestas. Nulla vitae consectetur nisi, quis tempor orci.
         Pellentesque ante est, posuere vitae iaculis sit amet, consectetur at
         mi. Orci varius natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus. Quisque id aliquam neque. Nullam rhoncus libero
         id sollicitudin scelerisque. Fusce nec cursus nunc.
-      </p>
-      <p>
+      </Typography>
+      <Typography variant="body2" gutterBottom>
         Quisque porttitor semper finibus. Aliquam a lectus a tellus finibus
         efficitur. Cras ultricies dolor vitae diam ullamcorper sollicitudin.
         Integer at convallis sapien. Nam ut tortor a nunc scelerisque tempor
@@ -66,7 +70,7 @@ export default function Main() {
         litora torquent per conubia nostra, per inceptos himenaeos. Mauris
         lacinia enim sed nisl eleifend, eu finibus nisl condimentum. Etiam
         aliquet massa vel sapien feugiat sagittis.
-      </p>
+      </Typography>
       <ScrollToTopButton />
     </div>
   );
