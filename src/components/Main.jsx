@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Projects from "./Projects";
+import ScrollToTopButton from "./ScrollTopButton";
 
 export default function Main() {
   return (
@@ -66,6 +67,7 @@ export default function Main() {
         lacinia enim sed nisl eleifend, eu finibus nisl condimentum. Etiam
         aliquet massa vel sapien feugiat sagittis.
       </p>
+      <ScrollToTopButton />
     </div>
   );
 }
