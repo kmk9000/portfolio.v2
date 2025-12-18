@@ -23,7 +23,7 @@ export default function Projects() {
         aria-labelledby={`simple-tab-${index}`}
         {...other}
       >
-        {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+        {value === index && <Box sx={{ px: 1, py: 3 }}>{children}</Box>}
       </div>
     );
   }
@@ -64,7 +64,7 @@ export default function Projects() {
             className="bg-black/20 p-6 r            
             backdrop-blur-xl      
             rounded-xl           
-            border border-white/20 
+            border border-white/5
             shadow-2xl"
           >
             <p>
@@ -109,7 +109,13 @@ export default function Projects() {
           </div>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <div className="bg-black/20 p-6 rounded-xl shadow-lg">
+          <div
+            className="bg-black/20 p-6 r            
+            backdrop-blur-xl      
+            rounded-xl           
+            border border-white/5
+            shadow-2xl"
+          >
             <p>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Nulla vitae consectetur nisi,
@@ -135,7 +141,13 @@ export default function Projects() {
           </div>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          <div className="bg-black/20 p-6 rounded-xl shadow-lg">
+          <div
+            className="bg-black/20 p-6 r            
+            backdrop-blur-xl      
+            rounded-xl           
+            border border-white/5
+            shadow-2xl"
+          >
             <p>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Nulla vitae consectetur nisi,
