@@ -4,10 +4,18 @@ import ScrollToTopButton from "./ScrollTopButton";
 
 export default function Main() {
   return (
-    <div className="main-container text-white  bg-gray-900 items-center md:px-25 md:py-12 px-6 scroll-auto h-screen overflow-auto sm:p-6 lg:p-12 w-full xl:w-3/4">
+    <div
+      className="main-container text-white  bg-gray-900 items-center md:px-25 md:py-12 px-6 scroll-auto h-screen overflow-auto sm:p-6 lg:p-12 w-full xl:w-3/4"
+      style={{ scrollPaddingTop: "150px" }}
+    >
       {/* text-gray-800 bg-blue-300 */}
-      <Typography variant="h5" sx={{ mt: 4 }} gutterBottom>
-        <a id="about">About</a>
+      <Typography
+        id="about"
+        variant="h5"
+        sx={{ mt: 4, scrollMarginTop: "150px" }}
+        gutterBottom
+      >
+        About
       </Typography>
       <Typography variant="body1" gutterBottom>
         This is the about section of my portfolio
@@ -29,8 +37,8 @@ export default function Main() {
         libero vitae odio convallis tincidunt.
       </Typography>
       <Projects />
-      <Typography variant="h5" gutterBottom mt={3}>
-        <a id="contact">Contact</a>
+      <Typography id="contact" variant="h5" gutterBottom mt={3}>
+        Contact
       </Typography>
       <Typography variant="body1" gutterBottom>
         This is the contact section of my portfolio.

@@ -41,8 +41,8 @@ export default function Projects() {
   }
   return (
     <div className="z-0">
-      <Typography variant="h5" gutterBottom mt={4}>
-        <a id="projects">Projects</a>
+      <Typography id="projects" variant="h5" gutterBottom mt={4}>
+        Projects
       </Typography>
       <Typography variant="body1" gutterBottom>
         This is the project section of my portfolio.
