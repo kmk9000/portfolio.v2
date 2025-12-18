@@ -38,6 +38,11 @@ function App() {
       // 1. **Priority Check for Top of Page (About)**
       if (mainContainer.scrollTop === 0) {
         currentSection = "about";
+      } else if (
+        mainContainer.scrollTop + containerHeight >=
+        mainContainer.scrollHeight
+      ) {
+        currentSection = "contact";
       } else {
         // 2. Check for other sections by finding the one whose top is ABOVE the trigger line
         const sections = ["about", "projects", "contact"];

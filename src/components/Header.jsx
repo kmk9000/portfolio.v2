@@ -6,7 +6,7 @@ export default function Header({ activeSection, setActiveSection }) {
   };
 
   return (
-    <div className="flex flex-col bg-blue-950 text-white p-12 w-1/4 md:p-6 lg:p-12 w-full md:w-1/4 lg:w-1/3 xl:w-1/4 sticky top-0  justify-between">
+    <div className="flex flex-col bg-blue-950 text-white p-12 md:p-6 lg:p-12 w-full md:w-1/4 lg:w-1/3 xl:w-1/4 sticky top-0  justify-between">
       {/* bg-blue-600 */}
       <header>
         <Typography variant="h4" component="div" gutterBottom>
