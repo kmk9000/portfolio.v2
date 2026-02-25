@@ -5,14 +5,13 @@ import ScrollToTopButton from "./ScrollTopButton";
 export default function Main() {
   return (
     <div
-      className="main-container text-white  bg-gray-900 items-center md:px-25 md:py-12 px-6 scroll-auto h-screen overflow-auto sm:p-6 lg:p-12 w-full xl:w-3/4"
+      className="main-container relative z-10 h-screen w-full scroll-auto overflow-auto border-white/10 bg-slate-900/60 px-6 py-8 text-slate-100 backdrop-blur-sm sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 lg:py-12 xl:w-3/4"
       style={{ scrollPaddingTop: "150px" }}
     >
-      {/* text-gray-800 bg-blue-300 */}
       <Typography
         id="about"
         variant="h5"
-        sx={{ mt: 4, scrollMarginTop: "150px" }}
+        sx={{ mt: 4, mb: 1, scrollMarginTop: "150px" }}
         gutterBottom
       >
         About
@@ -20,7 +19,7 @@ export default function Main() {
       <Typography variant="body1" gutterBottom>
         This is the about section of my portfolio
       </Typography>
-      <Typography variant="body2" gutterBottom>
+      <Typography variant="body2" gutterBottom sx={{ color: "#cbd5e1" }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum
         libero nec metus mollis mattis. Integer ultricies felis a condimentum
         malesuada. Praesent nunc dolor, dictum quis fringilla vitae, semper
@@ -37,13 +36,13 @@ export default function Main() {
         libero vitae odio convallis tincidunt.
       </Typography>
       <Projects />
-      <Typography id="contact" variant="h5" gutterBottom mt={3}>
+      <Typography id="contact" variant="h5" gutterBottom mt={6} mb={1}>
         Contact
       </Typography>
       <Typography variant="body1" gutterBottom>
         This is the contact section of my portfolio.
       </Typography>
-      <Typography variant="body2" gutterBottom>
+      <Typography variant="body2" gutterBottom sx={{ color: "#cbd5e1" }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum
         libero nec metus mollis mattis. Integer ultricies felis a condimentum
         malesuada. Praesent nunc dolor, dictum quis fringilla vitae, semper

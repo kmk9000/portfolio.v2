@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme.js";
 
-function App() {
+export default function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -21,75 +21,70 @@ function App() {
 
   const [activeSection, setActiveSection] = useState("about");
 
-  // effect made with help from gemini 13.12.2025
   useEffect(() => {
     const mainContainer = document.querySelector(".main-container");
     if (!mainContainer) return;
 
-    // Define the trigger line offset (e.g., 25% down from the container's top)
-    const TRIGGER_OFFSET = 0.25; // 25%
+    const TRIGGER_OFFSET = 0.25;
+    const BOTTOM_THRESHOLD = 2;
 
     const handleScroll = () => {
       const containerTop = mainContainer.getBoundingClientRect().top;
       const containerHeight = mainContainer.clientHeight;
       const triggerLineY = containerTop + containerHeight * TRIGGER_OFFSET;
+      const isAtBottom =
+        mainContainer.scrollTop + containerHeight >=
+        mainContainer.scrollHeight - BOTTOM_THRESHOLD;
 
-      let currentSection = "about"; // Default to 'about'
+      let currentSection = "about";
 
-      // 1. **Priority Check for Top of Page (About)**
       if (mainContainer.scrollTop === 0) {
         currentSection = "about";
-      } else if (
-        mainContainer.scrollTop + containerHeight >=
-        mainContainer.scrollHeight
-      ) {
+      } else if (isAtBottom) {
         currentSection = "contact";
       } else {
-        // 2. Check for other sections by finding the one whose top is ABOVE the trigger line
         const sections = ["about", "projects", "contact"];
 
-        // Find the last section whose top edge has passed the trigger line
         for (const sectionId of sections) {
           const element = document.getElementById(sectionId);
           if (element) {
             const rect = element.getBoundingClientRect();
 
-            // If the section's top boundary is at or above the trigger line,
-            // it is the current active section.
             if (rect.top <= triggerLineY) {
               currentSection = sectionId;
             } else {
-              // Since sections are ordered, we can stop checking when one falls below the line
               break;
             }
           }
         }
       }
 
-      // 3. Update state and URL only if the section has actually changed
-      if (currentSection !== activeSection) {
-        setActiveSection(currentSection);
-        history.replaceState(null, "", `#${currentSection}`);
-      }
+      setActiveSection((previousSection) => {
+        if (previousSection !== currentSection) {
+          history.replaceState(null, "", `#${currentSection}`);
+          return currentSection;
+        }
+
+        return previousSection;
+      });
     };
 
-    // Attach the scroll listener
     mainContainer.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run once on mount to set the initial state
+    handleScroll();
 
-    // Cleanup the scroll listener
     return () => {
       mainContainer.removeEventListener("scroll", handleScroll);
     };
-  }, [activeSection]); // Depend on activeSection to ensure the comparison is always up-to-date
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="relative flex flex-col md:flex-row min-h-screen min-w-full">
+      <div className="relative flex flex-col md:flex-row min-h-screen min-w-full bg-slate-950">
+        <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.16),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.14),transparent_35%),radial-gradient(circle_at_50%_80%,rgba(168,85,247,0.12),transparent_45%)]" />
         <div
           className="pointer-events-none fixed inset-0 z-0 transition duration-300"
           style={{
-            background: `radial-gradient(200px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+            background: `radial-gradient(300px at ${mousePosition.x}px ${mousePosition.y}px, rgba(56, 189, 248, 0.2), transparent 75%)`,
           }}
         />
         <Header
@@ -101,5 +96,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;
