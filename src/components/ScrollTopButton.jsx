@@ -32,7 +32,12 @@ export default function ScrollToTopButton() {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: "fixed", bottom: 4, right: 16, zIndex: 1000 }}
+        sx={{
+          position: "fixed",
+          bottom: { xs: 16, sm: 24 },
+          right: { xs: 16, sm: 24 },
+          zIndex: 1000,
+        }}
       >
         <Fab size="medium" aria-label="scroll back to top" color="primary">
           ↑

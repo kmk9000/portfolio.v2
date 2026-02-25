@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import ScrollToTopButton from "./components/ScrollTopButton";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme.js";
 
@@ -92,6 +93,7 @@ export default function App() {
           setActiveSection={setActiveSection}
         />
         <Main />
+        <ScrollToTopButton />
       </div>
     </ThemeProvider>
   );
