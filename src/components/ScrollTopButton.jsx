@@ -2,6 +2,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import Fade from "@mui/material/Fade";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState, useEffect } from "react";
 
 export default function ScrollToTopButton() {
@@ -40,7 +41,7 @@ export default function ScrollToTopButton() {
         }}
       >
         <Fab size="medium" aria-label="scroll back to top" color="primary">
-          ↑
+          <KeyboardArrowUpIcon />
         </Fab>
       </Box>
     </Fade>

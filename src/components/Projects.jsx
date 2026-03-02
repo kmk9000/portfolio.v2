@@ -48,12 +48,7 @@ export default function Projects() {
         Projects
       </Typography>
       <Typography variant="body1" gutterBottom>
-        This is the project section of my portfolio. It was made with React and
-        Material UI, and is designed to be responsive and visually appealing.
-        The project section includes tabs for different categories of projects,
-        and each tab contains a description of the project and a preview image.
-        The project section is also designed to be accessible, with proper ARIA
-        attributes and keyboard navigation support.
+        This is the project section of my portfolio.
       </Typography>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

@@ -5,13 +5,17 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import TitleAnimation from "./TitleAnimation";
 
 export default function Header({ activeSection, setActiveSection }) {
+  const titleText = "Front End Developer";
+
   const handleClick = (section) => {
     setActiveSection(section);
   };
 
   const [anchorElNav, setAnchorElNav] = useState(null);
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -48,13 +52,18 @@ export default function Header({ activeSection, setActiveSection }) {
             My Portfolio
           </a>
         </Typography>
-        <Typography variant="h6" className="text-slate-100">
-          Front End Developer
-        </Typography>
+        <TitleAnimation
+          text={titleText}
+          duration={3000}
+          className="text-slate-100"
+        />
 
-        <Typography variant="body2" className="mt-2 max-w-xs text-slate-300">
-          Crafting responsive, polished, and accessible web experiences.
-        </Typography>
+        <TitleAnimation
+          text="Crafting responsive, polished, and accessible web experiences."
+          duration={3500}
+          variant="body2"
+          className="mt-2 max-w-xs text-slate-300"
+        />
         <Box
           sx={{
             position: "absolute",
