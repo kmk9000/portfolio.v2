@@ -65,12 +65,7 @@ export default function Projects() {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <div
-            className="bg-black/20 p-6 r            
-            rounded-xl           
-            border border-white/5
-            shadow-2xl"
-          >
+          <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
             <Typography variant="body2" gutterBottom>
               Simple React project. Pulls data from a database, allows the user
               to add an employee to the database, and also to edit some of the
@@ -114,12 +109,7 @@ export default function Projects() {
           </div>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <div
-            className="bg-black/20 p-6 r            
-            rounded-xl           
-            border border-white/5
-            shadow-2xl"
-          >
+          <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
             <Typography variant="body2" gutterBottom>
               Practice project for recreating a WordPress site with a custom
               theme. All credit to the original creators of the site, Alfons Oy,
@@ -150,12 +140,7 @@ export default function Projects() {
           </div>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          <div
-            className="bg-black/20 p-6 r            
-            rounded-xl           
-            border border-white/5
-            shadow-2xl"
-          >
+          <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
             <Typography variant="body2" gutterBottom>
               CSS showcase work focused on layout, typography, and spacing.
             </Typography>
