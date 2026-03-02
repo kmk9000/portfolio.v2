@@ -37,7 +37,7 @@ export default function Header({ activeSection, setActiveSection }) {
   const navLabelClass = "flex items-center py-1";
 
   return (
-    <div className="relative z-10 flex w-full flex-col justify-between border-r border-white/10 bg-slate-900/80 p-6 text-white backdrop-blur-xl md:sticky md:top-0 md:h-screen md:w-1/4 md:p-8 lg:w-1/3 lg:p-10 xl:w-1/4">
+    <div className="relative z-10 flex w-full flex-col justify-between border-r border-white/10 bg-slate-900/80 p-6 text-white md:sticky md:top-0 md:h-screen md:w-1/4 md:p-8 lg:w-1/3 lg:p-10 xl:w-1/4">
       <header className="relative">
         <Typography
           variant="h4"
@@ -105,7 +105,6 @@ export default function Header({ activeSection, setActiveSection }) {
               backgroundColor: "rgba(15, 23, 42, 0.95)",
               border: "1px solid rgba(255,255,255,0.1)",
               color: "#e2e8f0",
-              backdropFilter: "blur(8px)",
             },
           }}
         >

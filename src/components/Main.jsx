@@ -4,7 +4,7 @@ import Projects from "./Projects";
 export default function Main() {
   return (
     <div
-      className="main-container relative z-10 h-screen w-full scroll-auto overflow-auto border-white/10 bg-slate-800/60 px-6 py-8 text-slate-100 backdrop-blur-sm sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 lg:py-12 xl:w-3/4"
+      className="main-container relative z-10 h-screen w-full scroll-auto overflow-auto border-white/10 bg-slate-800/60 px-6 py-8 text-slate-100 sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 lg:py-12 xl:w-3/4"
       style={{ scrollPaddingTop: "150px" }}
     >
       <Typography
@@ -19,7 +19,7 @@ export default function Main() {
         This is the about section of my portfolio.
       </Typography>
       <Typography variant="body2" gutterBottom sx={{ color: "#cbd5e1" }}>
-        I am Kalle Koivuniemi and I am a passionate front-end developer with a
+        I am Kalle Koivuniemi and I am an aspiring front-end developer with a
         knack for crafting responsive and visually appealing web applications.
         With a strong foundation in HTML, CSS, and JavaScript, I specialize in
         creating seamless user experiences that are both functional and

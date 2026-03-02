@@ -59,15 +59,14 @@ export default function Projects() {
             textColor="inherit"
             indicatorColor="primary"
           >
-            <Tab label="React/Javascript" {...a11yProps(0)} />
-            <Tab label="Wordpress/PHP" {...a11yProps(1)} />
-            <Tab label="CSS Showcases" {...a11yProps(2)} />
+            <Tab label="React/Javascript" disableRipple {...a11yProps(0)} />
+            <Tab label="Wordpress/PHP" disableRipple {...a11yProps(1)} />
+            <Tab label="CSS Showcases" disableRipple {...a11yProps(2)} />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
           <div
             className="bg-black/20 p-6 r            
-            backdrop-blur-xl      
             rounded-xl           
             border border-white/5
             shadow-2xl"
@@ -117,7 +116,6 @@ export default function Projects() {
         <CustomTabPanel value={value} index={1}>
           <div
             className="bg-black/20 p-6 r            
-            backdrop-blur-xl      
             rounded-xl           
             border border-white/5
             shadow-2xl"
@@ -154,7 +152,6 @@ export default function Projects() {
         <CustomTabPanel value={value} index={2}>
           <div
             className="bg-black/20 p-6 r            
-            backdrop-blur-xl      
             rounded-xl           
             border border-white/5
             shadow-2xl"
