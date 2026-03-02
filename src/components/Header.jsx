@@ -28,6 +28,17 @@ export default function Header({ activeSection, setActiveSection }) {
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ];
+  const skills = [
+    "React",
+    "JavaScript",
+    "TypeScript",
+    "SQL",
+    "Tailwind",
+    "MUI",
+    "Git",
+    "HTML",
+    "CSS",
+  ];
   const navLinkClass =
     "group flex items-center gap-3 text-slate-200 transition-colors duration-300 hover:text-cyan-300";
   const navLineClass =
@@ -64,6 +75,16 @@ export default function Header({ activeSection, setActiveSection }) {
           variant="body2"
           className="mt-2 max-w-xs text-slate-300"
         />
+        <div className="mt-4 flex max-w-sm flex-wrap gap-2">
+          {skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
         <Box
           sx={{
             position: "absolute",
