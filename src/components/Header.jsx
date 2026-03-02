@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import SkillsArray from "./SkillsArray";
 import TitleAnimation from "./TitleAnimation";
 
 export default function Header({ activeSection, setActiveSection }) {
@@ -28,28 +29,6 @@ export default function Header({ activeSection, setActiveSection }) {
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ];
-  const skills = [
-    "React",
-    "JavaScript",
-    "TypeScript",
-    "SQL",
-    "Wordpress",
-    "PHP",
-    "Tailwind",
-    "MUI",
-    "Git",
-    "HTML",
-    "CSS",
-  ];
-  const skillTargetByName = {
-    React: "#projects-react",
-    JavaScript: "#projects-react",
-    MUI: "#projects-react",
-    Wordpress: "#projects-wordpress",
-    PHP: "#projects-wordpress",
-    HTML: "#projects-css",
-    CSS: "#projects-css",
-  };
   const navLinkClass =
     "group flex items-center gap-3 text-slate-200 transition-colors duration-300 hover:text-cyan-300";
   const navLineClass =
@@ -86,18 +65,7 @@ export default function Header({ activeSection, setActiveSection }) {
           variant="body2"
           className="mt-2 max-w-xs text-slate-300"
         />
-        <div className="mt-4 flex max-w-sm flex-wrap gap-2">
-          {skills.map((skill) => (
-            <a
-              key={skill}
-              href={skillTargetByName[skill] || "#projects"}
-              onClick={() => handleClick("projects")}
-              className="rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200 transition-colors duration-200 hover:bg-cyan-300/20"
-            >
-              {skill}
-            </a>
-          ))}
-        </div>
+        <SkillsArray onSkillClick={() => handleClick("projects")} />
         <Box
           sx={{
             position: "absolute",
