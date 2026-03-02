@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import SkillsArray from "./SkillsArray";
 import TitleAnimation from "./TitleAnimation";
 import MobileMenu from "./MobileMenu";
+import { NAV_ITEMS } from "../constants/navigation";
 
 export default function Header({ activeSection, setActiveSection }) {
   const titleText = "Front End Developer";
@@ -12,11 +13,6 @@ export default function Header({ activeSection, setActiveSection }) {
     setActiveSection(section);
   };
 
-  const navItems = [
-    { id: "about", label: "About" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
-  ];
   const navLinkClass =
     "group flex items-center gap-3 text-slate-200 transition-colors duration-300 hover:text-cyan-300";
   const navLineClass =
@@ -56,11 +52,11 @@ export default function Header({ activeSection, setActiveSection }) {
           className="mt-2 max-w-xs text-slate-300"
         />
         <SkillsArray onSkillClick={() => handleClick("projects")} />
-        <MobileMenu navItems={navItems} onItemClick={handleClick} />
+        <MobileMenu navItems={NAV_ITEMS} onItemClick={handleClick} />
 
         <nav className="mt-8 hidden md:block">
           <ul className="space-y-3">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
