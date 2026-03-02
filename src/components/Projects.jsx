@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import hrPreview from "../assets/hrapp-preview.png";
 import abcsMediaPreview from "../assets/abcs-media-preview.png";
@@ -12,8 +12,40 @@ import PortfolioCard from "./PortfolioCard";
 export default function Projects() {
   const [value, setValue] = useState(0);
 
+  useEffect(() => {
+    const syncTabFromHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === "#projects-wordpress") {
+        setValue(1);
+        return;
+      }
+      if (hash === "#projects-css") {
+        setValue(2);
+        return;
+      }
+      if (hash === "#projects" || hash === "#projects-react") {
+        setValue(0);
+      }
+    };
+
+    syncTabFromHash();
+    window.addEventListener("hashchange", syncTabFromHash);
+    return () => {
+      window.removeEventListener("hashchange", syncTabFromHash);
+    };
+  }, []);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    const hashByTabIndex = {
+      0: "#projects-react",
+      1: "#projects-wordpress",
+      2: "#projects-css",
+    };
+    const nextHash = hashByTabIndex[newValue] || "#projects-react";
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash;
+    }
   };
 
   function CustomTabPanel(props) {
@@ -65,18 +97,18 @@ export default function Projects() {
             <Tab label="CSS Showcases" disableRipple {...a11yProps(2)} />
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0}>
+        <CustomTabPanel value={value} index={0} id="projects-react">
           <PortfolioCard>
             <Typography variant="body2" gutterBottom>
-              Simple React project. Pulls data from a database, allows the user
-              to add an employee to the database, and also to edit some of the
-              submitted data on the fronted too. Backend may be slow to load the
-              first time, as it's using a free tier from Render.com, so give it
-              up to a minute to spin up, please. Feel free to add an employee,
-              edit the employee's name, and then refresh the page to see the
-              changes persist. Changes will not be saved between spin ups of the
-              free service, but it should work as expected while the service is
-              running.
+              Simple React project made with MUI. Pulls data from a database,
+              allows the user to add an employee to the database, and also to
+              edit some of the submitted data on the fronted too. Backend may be
+              slow to load the first time, as it's using a free tier from
+              Render.com, so give it up to a minute to spin up, please. Feel
+              free to add an employee, edit the employee's name, and then
+              refresh the page to see the changes persist. Changes will not be
+              saved between spin ups of the free service, but it should work as
+              expected while the service is running.
             </Typography>
             <Typography variant="body2" gutterBottom>
               <a
@@ -109,7 +141,7 @@ export default function Projects() {
             </Typography>
           </PortfolioCard>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
+        <CustomTabPanel value={value} index={1} id="projects-wordpress">
           <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               Practice project for recreating a WordPress site with a custom
@@ -140,7 +172,7 @@ export default function Projects() {
             </Typography>
           </PortfolioCard>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={2}>
+        <CustomTabPanel value={value} index={2} id="projects-css">
           <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               CSS showcase work focused on layout, typography, and spacing.

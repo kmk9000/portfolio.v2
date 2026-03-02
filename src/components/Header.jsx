@@ -33,12 +33,23 @@ export default function Header({ activeSection, setActiveSection }) {
     "JavaScript",
     "TypeScript",
     "SQL",
+    "Wordpress",
+    "PHP",
     "Tailwind",
     "MUI",
     "Git",
     "HTML",
     "CSS",
   ];
+  const skillTargetByName = {
+    React: "#projects-react",
+    JavaScript: "#projects-react",
+    MUI: "#projects-react",
+    Wordpress: "#projects-wordpress",
+    PHP: "#projects-wordpress",
+    HTML: "#projects-css",
+    CSS: "#projects-css",
+  };
   const navLinkClass =
     "group flex items-center gap-3 text-slate-200 transition-colors duration-300 hover:text-cyan-300";
   const navLineClass =
@@ -77,12 +88,14 @@ export default function Header({ activeSection, setActiveSection }) {
         />
         <div className="mt-4 flex max-w-sm flex-wrap gap-2">
           {skills.map((skill) => (
-            <span
+            <a
               key={skill}
-              className="rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200"
+              href={skillTargetByName[skill] || "#projects"}
+              onClick={() => handleClick("projects")}
+              className="rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200 transition-colors duration-200 hover:bg-cyan-300/20"
             >
               {skill}
-            </span>
+            </a>
           ))}
         </div>
         <Box
