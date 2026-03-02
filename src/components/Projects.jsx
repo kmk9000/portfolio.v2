@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import hrPreview from "../assets/hrapp-preview.png";
 import abcsMediaPreview from "../assets/abcs-media-preview.png";
 import frontendPreview1 from "../assets/frontend-mentor-order.png";
+import PortfolioCard from "./PortfolioCard";
 
 export default function Projects() {
   const [value, setValue] = useState(0);
@@ -44,7 +45,7 @@ export default function Projects() {
   }
   return (
     <div className="z-0">
-      <Typography id="projects" variant="h5" gutterBottom mt={4}>
+      <Typography id="projects" variant="h5" gutterBottom mt={3} mb={1}>
         Projects
       </Typography>
       <Typography variant="body1" gutterBottom>
@@ -65,7 +66,7 @@ export default function Projects() {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
+          <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               Simple React project. Pulls data from a database, allows the user
               to add an employee to the database, and also to edit some of the
@@ -106,10 +107,10 @@ export default function Projects() {
               components for styling and layout, as well as best practices for
               organizing a React application.
             </Typography>
-          </div>
+          </PortfolioCard>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
+          <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               Practice project for recreating a WordPress site with a custom
               theme. All credit to the original creators of the site, Alfons Oy,
@@ -137,10 +138,10 @@ export default function Projects() {
                 />
               </a>{" "}
             </Typography>
-          </div>
+          </PortfolioCard>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
+          <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               CSS showcase work focused on layout, typography, and spacing.
             </Typography>
@@ -165,7 +166,7 @@ export default function Projects() {
                 className="mx-auto block h-140 w-120 rounded-lg object-cover p-4"
               />
             </Typography>
-          </div>
+          </PortfolioCard>
         </CustomTabPanel>
       </Box>
     </div>

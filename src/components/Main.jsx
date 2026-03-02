@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Projects from "./Projects";
+import PortfolioCard from "./PortfolioCard";
 
 export default function Main() {
   return (
@@ -10,13 +11,13 @@ export default function Main() {
       <Typography
         id="about"
         variant="h5"
-        sx={{ mt: 4, mb: 1, scrollMarginTop: "150px" }}
+        sx={{ mx: "auto", scrollMarginTop: "150px" }}
         gutterBottom
       >
         About
       </Typography>
       <div className="py-3">
-        <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
+        <PortfolioCard>
           <Typography variant="body1" gutterBottom>
             This is the about section of my portfolio.
           </Typography>
@@ -48,14 +49,14 @@ export default function Main() {
             complex single-page application, I am committed to delivering
             high-quality work that meets the needs of users and clients alike.
           </Typography>
-        </div>
+        </PortfolioCard>
       </div>
       <Projects />
-      <Typography id="contact" variant="h5" gutterBottom mt={6} mb={1}>
+      <Typography id="contact" variant="h5" gutterBottom>
         Contact
       </Typography>
       <div className="py-3">
-        <div className="rounded-xl border border-white/5 bg-black/20 p-6 shadow-2xl">
+        <PortfolioCard>
           <Typography variant="body1" gutterBottom>
             This is the contact section of my portfolio.
           </Typography>
@@ -80,7 +81,7 @@ export default function Main() {
             </a>
             , where you can find more of my projects and code samples.
           </Typography>
-        </div>
+        </PortfolioCard>
       </div>
     </div>
   );

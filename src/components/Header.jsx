@@ -49,7 +49,7 @@ export default function Header({ activeSection, setActiveSection }) {
             href="#about"
             className="bg-linear-to-r from-cyan-300 via-blue-300 to-violet-300 bg-clip-text text-transparent"
           >
-            My Portfolio
+            {"/"}Kalle Koivuniemi{"/"}
           </a>
         </Typography>
         <TitleAnimation
