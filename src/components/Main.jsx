@@ -19,9 +19,6 @@ export default function Main() {
       <div className="py-3">
         <PortfolioCard>
           <Typography variant="body1" gutterBottom>
-            This is the about section of my portfolio.
-          </Typography>
-          <Typography variant="body2" gutterBottom sx={{ color: "#cbd5e1" }}>
             I am Kalle Koivuniemi and I am an aspiring front-end developer with
             a knack for crafting responsive and visually appealing web
             applications. With a strong foundation in HTML, CSS, and JavaScript,
@@ -32,7 +29,7 @@ export default function Main() {
             maintainable code and continuously learning new technologies to stay
             at the forefront of web development trends.
           </Typography>
-          <Typography variant="body2" gutterBottom>
+          <Typography variant="body1" gutterBottom>
             This porfolio was made with React and Material UI, and is designed
             to be responsive and visually appealing. The project section
             includes tabs for different categories of projects, and each tab
@@ -40,7 +37,7 @@ export default function Main() {
             project section is also designed to be accessible, with proper ARIA
             attributes and keyboard navigation support.
           </Typography>
-          <Typography variant="body2" gutterBottom>
+          <Typography variant="body1" gutterBottom>
             In my projects, I focus on accessibility, performance, and
             cross-browser compatibility to ensure that my applications are
             usable by a wide audience. I enjoy collaborating with designers and
@@ -57,10 +54,7 @@ export default function Main() {
       </Typography>
       <div className="py-3">
         <PortfolioCard>
-          <Typography variant="body1" gutterBottom>
-            This is the contact section of my portfolio.
-          </Typography>
-          <Typography variant="body2" gutterBottom sx={{ color: "#cbd5e1" }}>
+          <Typography variant="body1" gutterBottom sx={{ color: "#cbd5e1" }}>
             My email address is{" "}
             <a
               href="mailto:kallekoivuniemi@gmail.com"
@@ -69,7 +63,7 @@ export default function Main() {
               kallekoivuniemi@gmail.com
             </a>
           </Typography>
-          <Typography variant="body2" gutterBottom sx={{ color: "#cbd5e1" }}>
+          <Typography variant="body1" gutterBottom sx={{ color: "#cbd5e1" }}>
             Here's my{" "}
             <a
               href="https://github.com/kmk9000"

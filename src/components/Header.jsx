@@ -1,27 +1,15 @@
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
 import SkillsArray from "./SkillsArray";
 import TitleAnimation from "./TitleAnimation";
+import MobileMenu from "./MobileMenu";
 
 export default function Header({ activeSection, setActiveSection }) {
   const titleText = "Front End Developer";
+  const mobileVisibilityClass =
+    activeSection === "about" ? "flex" : "hidden md:flex";
 
   const handleClick = (section) => {
     setActiveSection(section);
-  };
-
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const navItems = [
@@ -38,7 +26,9 @@ export default function Header({ activeSection, setActiveSection }) {
   const navLabelClass = "flex items-center py-1";
 
   return (
-    <div className="relative z-10 flex w-full flex-col justify-between border-r border-white/10 bg-slate-900/80 p-6 text-white md:sticky md:top-0 md:h-screen md:w-1/4 md:p-8 lg:w-1/3 lg:p-10 xl:w-1/4">
+    <div
+      className={`relative z-10 ${mobileVisibilityClass} w-full flex-col justify-between border-r border-white/10 bg-slate-900/80 p-6 text-white md:sticky md:top-0 md:h-screen md:w-1/4 md:p-8 lg:w-1/3 lg:p-10 xl:w-1/4`}
+    >
       <header className="relative">
         <Typography
           variant="h4"
@@ -66,61 +56,7 @@ export default function Header({ activeSection, setActiveSection }) {
           className="mt-2 max-w-xs text-slate-300"
         />
         <SkillsArray onSkillClick={() => handleClick("projects")} />
-        <Box
-          sx={{
-            position: "absolute",
-            top: 8,
-            right: 8,
-            display: { xs: "flex", md: "none" },
-          }}
-        >
-          <IconButton
-            size="large"
-            aria-label="navigation menu"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
-        </Box>
-
-        {/* Mobile Menu */}
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorElNav}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          open={Boolean(anchorElNav)}
-          onClose={handleCloseNavMenu}
-          sx={{
-            display: { xs: "block", md: "none" },
-            "& .MuiPaper-root": {
-              backgroundColor: "rgba(15, 23, 42, 0.95)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#e2e8f0",
-            },
-          }}
-        >
-          {navItems.map((item) => (
-            <MenuItem
-              key={item.id}
-              onClick={() => handleClick(item.id)}
-              component="a"
-              href={`#${item.id}`}
-            >
-              <Typography sx={{ textAlign: "center" }}>{item.label}</Typography>
-            </MenuItem>
-          ))}
-        </Menu>
+        <MobileMenu navItems={navItems} onItemClick={handleClick} />
 
         <nav className="mt-8 hidden md:block">
           <ul className="space-y-3">

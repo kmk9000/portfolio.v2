@@ -81,7 +81,8 @@ export default function Projects() {
         Projects
       </Typography>
       <Typography variant="body1" gutterBottom>
-        This is the project section of my portfolio.
+        This is the project section of my portfolio, showcasing my work in
+        React, WordPress, and CSS.
       </Typography>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
