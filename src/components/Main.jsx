@@ -16,23 +16,26 @@ export default function Main() {
         About
       </Typography>
       <Typography variant="body1" gutterBottom>
-        This is the about section of my portfolio
+        This is the about section of my portfolio.
       </Typography>
       <Typography variant="body2" gutterBottom sx={{ color: "#cbd5e1" }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum
-        libero nec metus mollis mattis. Integer ultricies felis a condimentum
-        malesuada. Praesent nunc dolor, dictum quis fringilla vitae, semper
-        tempor risus. Maecenas ut porta orci, vitae luctus dolor. Maecenas
-        suscipit hendrerit rhoncus. Vestibulum sed sapien feugiat mauris
-        dignissim semper sit amet id tortor. Vivamus quis pellentesque purus.
-        Donec porttitor, eros sed fringilla vulputate, augue orci tincidunt
-        magna, ut lacinia augue lorem ut quam. Proin sed fringilla nisi, vel
-        ullamcorper erat. Nulla vehicula ante sit amet lectus mollis, tincidunt
-        viverra justo porta. Duis leo est, viverra malesuada lobortis eget,
-        bibendum ut magna. Sed non lobortis arcu, in dictum neque. Nullam tempus
-        lorem quis orci faucibus accumsan. Maecenas dictum ultricies tincidunt.
-        Suspendisse a nisi vitae leo dignissim elementum. Vivamus malesuada
-        libero vitae odio convallis tincidunt.
+        I am a passionate front-end developer with a knack for crafting
+        responsive and visually appealing web applications. With a strong
+        foundation in HTML, CSS, and JavaScript, I specialize in creating
+        seamless user experiences that are both functional and aesthetically
+        pleasing. My expertise extends to modern frameworks like React, allowing
+        me to build dynamic and interactive interfaces. I am dedicated to
+        writing clean, maintainable code and continuously learning new
+        technologies to stay at the forefront of web development trends.
+      </Typography>
+      <Typography variant="body2" gutterBottom>
+        In my projects, I focus on accessibility, performance, and cross-browser
+        compatibility to ensure that my applications are usable by a wide
+        audience. I enjoy collaborating with designers and back-end developers
+        to bring ideas to life and create cohesive digital products. Whether
+        it's building a simple landing page or a complex single-page
+        application, I am committed to delivering high-quality work that meets
+        the needs of users and clients alike.
       </Typography>
       <Projects />
       <Typography id="contact" variant="h5" gutterBottom mt={6} mb={1}>
