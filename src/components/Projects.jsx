@@ -91,6 +91,9 @@ export default function Projects() {
             aria-label="tabs for projects"
             textColor="inherit"
             indicatorColor="primary"
+            variant="scrollable"
+            scrollButtons="auto"
+            allowScrollButtonsMobile
           >
             <Tab label="React/Javascript" disableRipple {...a11yProps(0)} />
             <Tab label="Wordpress/PHP" disableRipple {...a11yProps(1)} />
