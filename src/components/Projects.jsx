@@ -199,7 +199,7 @@ export default function Projects() {
               <img
                 src={frontendPreview1}
                 alt="CSS project preview"
-                className="mx-auto block h-140 w-120 rounded-lg object-cover p-4"
+                className="mx-auto block h-auto w-full max-w-xl rounded-lg object-cover p-4"
               />
             </Typography>
           </PortfolioCard>
