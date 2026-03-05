@@ -5,7 +5,6 @@ import MobileMenu from "./MobileMenu";
 import { NAV_ITEMS } from "../constants/navigation";
 
 export default function Header({ activeSection, setActiveSection }) {
-  const titleText = "Front End Developer";
   const mobileVisibilityClass =
     activeSection === "about"
       ? "flex max-h-screen translate-y-0 opacity-100 p-6 border-b border-white/10"
@@ -52,13 +51,17 @@ export default function Header({ activeSection, setActiveSection }) {
               event.preventDefault();
               handleClick("about");
             }}
-            className="bg-linear-to-r from-cyan-300 via-blue-300 to-violet-300 bg-clip-text text-transparent"
           >
-            {"/"}Kalle Koivuniemi{"/"}
+            <TitleAnimation
+              text="/Kalle Koivuniemi/"
+              duration={2500}
+              variant="h2"
+              className="bg-linear-to-r from-cyan-300 via-blue-300 to-violet-300 bg-clip-text text-transparent"
+            />
           </a>
         </Typography>
         <TitleAnimation
-          text={titleText}
+          text="Front End Developer"
           duration={3000}
           className="text-slate-100"
         />
