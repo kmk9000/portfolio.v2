@@ -11,6 +11,18 @@ export default function Header({ activeSection, setActiveSection }) {
 
   const handleClick = (section) => {
     setActiveSection(section);
+    const sectionElement = document.getElementById(section);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    const nextHash = `#${section}`;
+    if (window.location.hash !== nextHash) {
+      history.replaceState(null, "", nextHash);
+    }
   };
 
   const navLinkClass =
@@ -34,6 +46,10 @@ export default function Header({ activeSection, setActiveSection }) {
         >
           <a
             href="#about"
+            onClick={(event) => {
+              event.preventDefault();
+              handleClick("about");
+            }}
             className="bg-linear-to-r from-cyan-300 via-blue-300 to-violet-300 bg-clip-text text-transparent"
           >
             {"/"}Kalle Koivuniemi{"/"}
@@ -60,7 +76,10 @@ export default function Header({ activeSection, setActiveSection }) {
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
-                  onClick={() => handleClick(item.id)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleClick(item.id);
+                  }}
                   className={navLinkClass}
                 >
                   <div

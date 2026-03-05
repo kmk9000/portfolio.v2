@@ -79,12 +79,7 @@ export default function MobileMenu({ navItems, onItemClick }) {
         }}
       >
         {navItems.map((item) => (
-          <MenuItem
-            key={item.id}
-            onClick={() => handleItemClick(item.id)}
-            component="a"
-            href={`#${item.id}`}
-          >
+          <MenuItem key={item.id} onClick={() => handleItemClick(item.id)}>
             <Typography sx={{ textAlign: "center" }}>{item.label}</Typography>
           </MenuItem>
         ))}
