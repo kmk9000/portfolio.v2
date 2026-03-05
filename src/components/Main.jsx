@@ -30,10 +30,10 @@ export default function Main() {
             at the forefront of web development trends.
           </Typography>
           <Typography variant="body1" gutterBottom>
-            This porfolio was made with React and Material UI, and is designed
-            to be responsive and visually appealing. The project section
-            includes tabs for different categories of projects, and each tab
-            contains a description of the project and a preview image. The
+            This porfolio was made with React, Tailwind, and Material UI, and is
+            designed to be responsive and visually appealing. The project
+            section includes tabs for different categories of projects, and each
+            tab contains a description of the project and a preview image. The
             project section is also designed to be accessible, with proper ARIA
             attributes and keyboard navigation support.
           </Typography>
@@ -71,7 +71,7 @@ export default function Main() {
               rel="noopener noreferrer"
               className="text-cyan-300"
             >
-              github profile
+              GitHub profile
             </a>
             , where you can find more of my projects and code samples.
           </Typography>
