@@ -154,7 +154,7 @@ export default function Projects() {
               theme built with PHP and styled with CSS. Here is a link to the
               original site that I recreated:{" "}
               <a
-                href="https://www.abcsmedia.com/"
+                href="https://www.abcsofmedia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
