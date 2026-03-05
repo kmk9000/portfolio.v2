@@ -7,7 +7,9 @@ import { NAV_ITEMS } from "../constants/navigation";
 export default function Header({ activeSection, setActiveSection }) {
   const titleText = "Front End Developer";
   const mobileVisibilityClass =
-    activeSection === "about" ? "flex" : "hidden md:flex";
+    activeSection === "about"
+      ? "flex max-h-screen translate-y-0 opacity-100 p-6 border-b border-white/10"
+      : "flex max-h-0 -translate-y-4 opacity-0 pointer-events-none border-0 p-0 md:pointer-events-auto";
 
   const handleClick = (section) => {
     setActiveSection(section);
@@ -35,7 +37,7 @@ export default function Header({ activeSection, setActiveSection }) {
 
   return (
     <div
-      className={`relative z-10 ${mobileVisibilityClass} w-full flex-col justify-between border-r border-white/10 bg-slate-900/80 p-6 text-white md:sticky md:top-0 md:h-screen md:w-1/4 md:p-8 lg:w-1/3 lg:p-10 xl:w-1/4`}
+      className={`relative z-10 ${mobileVisibilityClass} w-full flex-col justify-between overflow-hidden bg-slate-900/80 text-white transition-all duration-500 ease-in-out md:sticky md:top-0 md:flex md:h-screen md:max-h-none md:w-1/4 md:translate-y-0 md:opacity-100 md:border-r md:border-white/10 md:p-8 lg:w-1/3 lg:p-10 xl:w-1/4`}
     >
       <header className="relative">
         <Typography
