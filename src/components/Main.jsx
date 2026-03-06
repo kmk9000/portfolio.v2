@@ -9,12 +9,12 @@ export default function Main() {
   return (
     <div
       className="main-container relative z-10 h-screen w-full scroll-auto overflow-auto border-white/10 bg-slate-800/60 px-6 py-8 text-slate-100 sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 lg:py-12 xl:w-3/4"
-      style={{ scrollPaddingTop: "150px" }}
+      style={{ scrollPaddingTop: "96px" }}
     >
       <Typography
         id="about"
         variant="h5"
-        sx={{ mx: "auto", scrollMarginTop: "150px" }}
+        sx={{ mx: "auto", scrollMarginTop: "96px" }}
         gutterBottom
       >
         About
@@ -52,7 +52,12 @@ export default function Main() {
         </PortfolioCard>
       </div>
       <Projects />
-      <Typography id="contact" variant="h5" gutterBottom>
+      <Typography
+        id="contact"
+        variant="h5"
+        gutterBottom
+        sx={{ scrollMarginTop: "96px" }}
+      >
         Contact
       </Typography>
       <div className="py-3">

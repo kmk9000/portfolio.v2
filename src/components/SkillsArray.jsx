@@ -52,12 +52,17 @@ export default function SkillsArray({ onSkillClick }) {
     <div className="mt-4 hidden max-w-sm flex-wrap gap-2 md:flex">
       {skills.map((skill) => {
         const SkillIcon = skillIconByName[skill];
+        const targetHash = skillTargetByName[skill] || "#projects-react";
 
         return (
           <a
             key={skill}
-            href={skillTargetByName[skill] || "#projects"}
-            onClick={onSkillClick}
+            href={targetHash}
+            onClick={(event) => {
+              if (onSkillClick) {
+                onSkillClick(event, targetHash);
+              }
+            }}
             className="inline-flex items-center gap-1.5 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200 transition-colors duration-200 hover:bg-cyan-300/20"
           >
             <SkillIcon sx={{ fontSize: 14 }} aria-hidden="true" />

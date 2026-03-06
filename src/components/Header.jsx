@@ -26,6 +26,34 @@ export default function Header({ activeSection, setActiveSection }) {
     }
   };
 
+  const handleSkillClick = (event, targetHash) => {
+    event.preventDefault();
+
+    const mainContainer = document.querySelector(".main-container");
+    const projectsElement = document.getElementById("projects");
+
+    const isProjectsInView =
+      Boolean(mainContainer) &&
+      Boolean(projectsElement) &&
+      projectsElement.getBoundingClientRect().top <=
+        mainContainer.getBoundingClientRect().bottom &&
+      projectsElement.getBoundingClientRect().bottom >=
+        mainContainer.getBoundingClientRect().top;
+
+    if (!isProjectsInView) {
+      handleClick("projects");
+    } else {
+      setActiveSection("projects");
+    }
+
+    const nextHash = targetHash || "#projects-react";
+    if (window.location.hash !== nextHash) {
+      history.replaceState(null, "", nextHash);
+    }
+
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  };
+
   const navLinkClass =
     "group flex items-center gap-3 text-slate-200 transition-colors duration-300 hover:text-cyan-300";
   const navLineClass =
@@ -72,7 +100,7 @@ export default function Header({ activeSection, setActiveSection }) {
           variant="body2"
           className="mt-2 max-w-xs text-slate-300"
         />
-        <SkillsArray onSkillClick={() => handleClick("projects")} />
+        <SkillsArray onSkillClick={handleSkillClick} />
         <MobileMenu navItems={NAV_ITEMS} onItemClick={handleClick} />
 
         <nav className="mt-8 hidden md:block">

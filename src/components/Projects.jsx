@@ -44,7 +44,7 @@ export default function Projects() {
     };
     const nextHash = hashByTabIndex[newValue] || "#projects-react";
     if (window.location.hash !== nextHash) {
-      window.location.hash = nextHash;
+      history.replaceState(null, "", nextHash);
     }
   };
 
@@ -77,7 +77,17 @@ export default function Projects() {
   }
   return (
     <div className="z-0">
-      <Typography id="projects" variant="h5" gutterBottom mt={3} mb={1}>
+      <div id="projects-react" />
+      <div id="projects-wordpress" />
+      <div id="projects-css" />
+      <Typography
+        id="projects"
+        variant="h5"
+        gutterBottom
+        mt={3}
+        mb={1}
+        sx={{ scrollMarginTop: "96px" }}
+      >
         Projects
       </Typography>
       <Typography variant="body1" gutterBottom>
@@ -101,7 +111,7 @@ export default function Projects() {
             <Tab label="CSS Showcases" disableRipple {...a11yProps(2)} />
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0} id="projects-react">
+        <CustomTabPanel value={value} index={0}>
           <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               Simple React project made with MUI. Pulls data from a database,
@@ -145,7 +155,7 @@ export default function Projects() {
             </Typography>
           </PortfolioCard>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={1} id="projects-wordpress">
+        <CustomTabPanel value={value} index={1}>
           <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               Practice project for recreating a WordPress site with a custom
@@ -176,7 +186,7 @@ export default function Projects() {
             </Typography>
           </PortfolioCard>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={2} id="projects-css">
+        <CustomTabPanel value={value} index={2}>
           <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               CSS showcase work focused on layout, typography, and spacing.
