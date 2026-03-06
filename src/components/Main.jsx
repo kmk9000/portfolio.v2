@@ -1,7 +1,6 @@
 import Typography from "@mui/material/Typography";
-import EmailIcon from "@mui/icons-material/Email";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { MdEmail } from "react-icons/md";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Projects from "./Projects";
 import PortfolioCard from "./PortfolioCard";
 
@@ -70,11 +69,10 @@ export default function Main() {
             <PortfolioCard>
               <Typography
                 variant="body1"
-                gutterBottom
                 sx={{ color: "#cbd5e1" }}
                 className="flex items-center gap-2"
               >
-                <EmailIcon fontSize="small" />
+                <MdEmail size={18} />
                 Email
               </Typography>
             </PortfolioCard>
@@ -89,11 +87,10 @@ export default function Main() {
             <PortfolioCard>
               <Typography
                 variant="body1"
-                gutterBottom
                 sx={{ color: "#cbd5e1" }}
                 className="flex items-center gap-2"
               >
-                <GitHubIcon fontSize="small" />
+                <FaGithub size={16} />
                 GitHub
               </Typography>
             </PortfolioCard>
@@ -108,11 +105,10 @@ export default function Main() {
             <PortfolioCard>
               <Typography
                 variant="body1"
-                gutterBottom
                 sx={{ color: "#cbd5e1" }}
                 className="flex items-center gap-2"
               >
-                <LinkedInIcon fontSize="small" />
+                <FaLinkedin size={16} />
                 LinkedIn
               </Typography>
             </PortfolioCard>

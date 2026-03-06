@@ -1,13 +1,18 @@
-import CodeIcon from "@mui/icons-material/Code";
-import CssIcon from "@mui/icons-material/Css";
-import DataObjectIcon from "@mui/icons-material/DataObject";
-import HtmlIcon from "@mui/icons-material/Html";
-import JavascriptIcon from "@mui/icons-material/Javascript";
-import LanguageIcon from "@mui/icons-material/Language";
-import SourceIcon from "@mui/icons-material/Source";
-import StorageIcon from "@mui/icons-material/Storage";
-import TerminalIcon from "@mui/icons-material/Terminal";
-import WidgetsIcon from "@mui/icons-material/Widgets";
+import {
+  FaCss3Alt,
+  FaDatabase,
+  FaGitAlt,
+  FaHtml5,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiJavascript,
+  SiMui,
+  SiPhp,
+  SiTailwindcss,
+  SiTypescript,
+  SiWordpress,
+} from "react-icons/si";
 
 export default function SkillsArray({ onSkillClick }) {
   const skills = [
@@ -35,17 +40,17 @@ export default function SkillsArray({ onSkillClick }) {
   };
 
   const skillIconByName = {
-    React: CodeIcon,
-    JavaScript: JavascriptIcon,
-    TypeScript: DataObjectIcon,
-    SQL: StorageIcon,
-    Wordpress: LanguageIcon,
-    PHP: TerminalIcon,
-    Tailwind: CssIcon,
-    MUI: WidgetsIcon,
-    Git: SourceIcon,
-    HTML: HtmlIcon,
-    CSS: CssIcon,
+    React: FaReact,
+    JavaScript: SiJavascript,
+    TypeScript: SiTypescript,
+    SQL: FaDatabase,
+    Wordpress: SiWordpress,
+    PHP: SiPhp,
+    Tailwind: SiTailwindcss,
+    MUI: SiMui,
+    Git: FaGitAlt,
+    HTML: FaHtml5,
+    CSS: FaCss3Alt,
   };
 
   return (
@@ -55,9 +60,9 @@ export default function SkillsArray({ onSkillClick }) {
         const targetHash = skillTargetByName[skill] || "#projects-react";
 
         return (
-          <a
+          <button
+            type="button"
             key={skill}
-            href={targetHash}
             onClick={(event) => {
               if (onSkillClick) {
                 onSkillClick(event, targetHash);
@@ -65,9 +70,9 @@ export default function SkillsArray({ onSkillClick }) {
             }}
             className="inline-flex items-center gap-1.5 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200 transition-colors duration-200 hover:bg-cyan-300/20"
           >
-            <SkillIcon sx={{ fontSize: 14 }} aria-hidden="true" />
+            <SkillIcon size={14} aria-hidden="true" />
             <span>{skill}</span>
-          </a>
+          </button>
         );
       })}
     </div>

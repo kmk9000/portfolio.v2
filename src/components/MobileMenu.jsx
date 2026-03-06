@@ -2,9 +2,9 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { MdMenu } from "react-icons/md";
 import { useEffect, useState } from "react";
 
 export default function MobileMenu({ navItems, onItemClick }) {
@@ -52,7 +52,7 @@ export default function MobileMenu({ navItems, onItemClick }) {
           onClick={handleOpenNavMenu}
           color="inherit"
         >
-          <MenuIcon />
+          <MdMenu size={24} />
         </IconButton>
       </Box>
 

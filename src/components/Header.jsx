@@ -20,38 +20,45 @@ export default function Header({ activeSection, setActiveSection }) {
       });
     }
 
-    const nextHash = `#${section}`;
-    if (window.location.hash !== nextHash) {
-      history.replaceState(null, "", nextHash);
+    if (section !== "projects") {
+      const nextHash = `#${section}`;
+      if (window.location.hash !== nextHash) {
+        history.replaceState(null, "", nextHash);
+      }
     }
   };
 
   const handleSkillClick = (event, targetHash) => {
     event.preventDefault();
 
+    setActiveSection("projects");
     const mainContainer = document.querySelector(".main-container");
     const projectsElement = document.getElementById("projects");
-
-    const isProjectsInView =
-      Boolean(mainContainer) &&
-      Boolean(projectsElement) &&
-      projectsElement.getBoundingClientRect().top <=
-        mainContainer.getBoundingClientRect().bottom &&
-      projectsElement.getBoundingClientRect().bottom >=
-        mainContainer.getBoundingClientRect().top;
-
-    if (!isProjectsInView) {
-      handleClick("projects");
-    } else {
-      setActiveSection("projects");
+    if (mainContainer && projectsElement) {
+      const containerRect = mainContainer.getBoundingClientRect();
+      const projectsRect = projectsElement.getBoundingClientRect();
+      const nextTop =
+        mainContainer.scrollTop + (projectsRect.top - containerRect.top);
+      mainContainer.scrollTo({
+        top: Math.max(0, nextTop),
+        behavior: "smooth",
+      });
+    } else if (projectsElement) {
+      projectsElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
 
-    const nextHash = targetHash || "#projects-react";
-    if (window.location.hash !== nextHash) {
-      history.replaceState(null, "", nextHash);
-    }
-
-    window.dispatchEvent(new HashChangeEvent("hashchange"));
+    const projectTabIndexByHash = {
+      "#projects-react": 0,
+      "#projects-wordpress": 1,
+      "#projects-css": 2,
+    };
+    const tabIndex = projectTabIndexByHash[targetHash] ?? 0;
+    window.dispatchEvent(
+      new CustomEvent("projects:tabchange", { detail: { tabIndex } }),
+    );
   };
 
   const navLinkClass =

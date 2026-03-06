@@ -13,39 +13,21 @@ export default function Projects() {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    const syncTabFromHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash === "#projects-wordpress") {
-        setValue(1);
-        return;
-      }
-      if (hash === "#projects-css") {
-        setValue(2);
-        return;
-      }
-      if (hash === "#projects" || hash === "#projects-react") {
-        setValue(0);
+    const handleExternalTabChange = (event) => {
+      const tabIndex = event.detail?.tabIndex;
+      if (typeof tabIndex === "number") {
+        setValue(tabIndex);
       }
     };
 
-    syncTabFromHash();
-    window.addEventListener("hashchange", syncTabFromHash);
+    window.addEventListener("projects:tabchange", handleExternalTabChange);
     return () => {
-      window.removeEventListener("hashchange", syncTabFromHash);
+      window.removeEventListener("projects:tabchange", handleExternalTabChange);
     };
   }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    const hashByTabIndex = {
-      0: "#projects-react",
-      1: "#projects-wordpress",
-      2: "#projects-css",
-    };
-    const nextHash = hashByTabIndex[newValue] || "#projects-react";
-    if (window.location.hash !== nextHash) {
-      history.replaceState(null, "", nextHash);
-    }
   };
 
   function CustomTabPanel(props) {
@@ -133,6 +115,8 @@ export default function Projects() {
                 <img
                   src={hrPreview}
                   alt="HR App preview"
+                  width={1600}
+                  height={900}
                   className="h-full w-full rounded-lg p-4 object-cover"
                 />
               </a>{" "}
@@ -180,6 +164,8 @@ export default function Projects() {
                 <img
                   src={abcsMediaPreview}
                   alt="WordPress project preview"
+                  width={1600}
+                  height={900}
                   className="h-full w-full rounded-lg object-cover p-4"
                 />
               </a>{" "}
@@ -209,6 +195,8 @@ export default function Projects() {
               <img
                 src={frontendPreview1}
                 alt="CSS project preview"
+                width={1600}
+                height={1000}
                 className="mx-auto block h-auto w-full max-w-xl rounded-lg object-cover p-4"
               />
             </Typography>

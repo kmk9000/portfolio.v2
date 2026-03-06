@@ -28,11 +28,6 @@ export default function App() {
 
     const TRIGGER_OFFSET = 0.25;
     const BOTTOM_THRESHOLD = 2;
-    const projectHashes = new Set([
-      "#projects-react",
-      "#projects-wordpress",
-      "#projects-css",
-    ]);
 
     const handleScroll = () => {
       const containerTop = mainContainer.getBoundingClientRect().top;
@@ -65,23 +60,9 @@ export default function App() {
         }
       }
 
-      setActiveSection((previousSection) => {
-        if (previousSection !== currentSection) {
-          const currentHash = window.location.hash.toLowerCase();
-          const nextHash =
-            currentSection === "projects" && projectHashes.has(currentHash)
-              ? currentHash
-              : `#${currentSection}`;
-
-          if (window.location.hash !== nextHash) {
-            history.replaceState(null, "", nextHash);
-          }
-
-          return currentSection;
-        }
-
-        return previousSection;
-      });
+      setActiveSection((previousSection) =>
+        previousSection !== currentSection ? currentSection : previousSection,
+      );
     };
 
     mainContainer.addEventListener("scroll", handleScroll);
