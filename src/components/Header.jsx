@@ -19,13 +19,6 @@ export default function Header({ activeSection, setActiveSection }) {
         block: "start",
       });
     }
-
-    if (section !== "projects") {
-      const nextHash = `#${section}`;
-      if (window.location.hash !== nextHash) {
-        history.replaceState(null, "", nextHash);
-      }
-    }
   };
 
   const handleSkillClick = (event, targetHash) => {
@@ -80,12 +73,12 @@ export default function Header({ activeSection, setActiveSection }) {
           gutterBottom
           className="font-semibold tracking-tight"
         >
-          <a
-            href="#about"
-            onClick={(event) => {
-              event.preventDefault();
+          <button
+            type="button"
+            onClick={() => {
               handleClick("about");
             }}
+            className="text-left"
           >
             <TitleAnimation
               text="/Kalle Koivuniemi/"
@@ -93,7 +86,7 @@ export default function Header({ activeSection, setActiveSection }) {
               variant="h2"
               className="bg-linear-to-r from-cyan-300 via-blue-300 to-violet-300 bg-clip-text text-transparent"
             />
-          </a>
+          </button>
         </Typography>
         <TitleAnimation
           text="Front End Developer"
@@ -114,10 +107,9 @@ export default function Header({ activeSection, setActiveSection }) {
           <ul className="space-y-3">
             {NAV_ITEMS.map((item) => (
               <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={(event) => {
-                    event.preventDefault();
+                <button
+                  type="button"
+                  onClick={() => {
                     handleClick(item.id);
                   }}
                   className={navLinkClass}
@@ -130,7 +122,7 @@ export default function Header({ activeSection, setActiveSection }) {
                     }`}
                   />
                   <div className={navLabelClass}>{item.label}</div>
-                </a>
+                </button>
               </li>
             ))}
           </ul>
