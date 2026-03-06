@@ -1,4 +1,7 @@
 import Typography from "@mui/material/Typography";
+import EmailIcon from "@mui/icons-material/Email";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Projects from "./Projects";
 import PortfolioCard from "./PortfolioCard";
 
@@ -53,29 +56,63 @@ export default function Main() {
         Contact
       </Typography>
       <div className="py-3">
-        <PortfolioCard>
-          <Typography variant="body1" gutterBottom sx={{ color: "#cbd5e1" }}>
-            My email address is{" "}
-            <a
-              href="mailto:kallekoivuniemi@gmail.com"
-              className="text-cyan-300"
-            >
-              kallekoivuniemi@gmail.com
-            </a>
-          </Typography>
-          <Typography variant="body1" gutterBottom sx={{ color: "#cbd5e1" }}>
-            Here's my{" "}
-            <a
-              href="https://github.com/kmk9000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-cyan-300"
-            >
-              GitHub profile
-            </a>
-            , where you can find more of my projects and code samples.
-          </Typography>
-        </PortfolioCard>
+        <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <a
+            href="mailto:kallekoivuniemi@gmail.com"
+            className="block"
+            aria-label="Email link"
+          >
+            <PortfolioCard>
+              <Typography
+                variant="body1"
+                gutterBottom
+                sx={{ color: "#cbd5e1" }}
+                className="flex items-center gap-2"
+              >
+                <EmailIcon fontSize="small" />
+                Email
+              </Typography>
+            </PortfolioCard>
+          </a>
+          <a
+            href="https://github.com/kmk9000"
+            className="block"
+            aria-label="GitHub link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <PortfolioCard>
+              <Typography
+                variant="body1"
+                gutterBottom
+                sx={{ color: "#cbd5e1" }}
+                className="flex items-center gap-2"
+              >
+                <GitHubIcon fontSize="small" />
+                GitHub
+              </Typography>
+            </PortfolioCard>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kalle-koivuniemi-946322144"
+            className="block"
+            aria-label="LinkedIn link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <PortfolioCard>
+              <Typography
+                variant="body1"
+                gutterBottom
+                sx={{ color: "#cbd5e1" }}
+                className="flex items-center gap-2"
+              >
+                <LinkedInIcon fontSize="small" />
+                LinkedIn
+              </Typography>
+            </PortfolioCard>
+          </a>
+        </div>
       </div>
     </div>
   );
