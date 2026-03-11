@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import hrPreview from "../assets/hrapp-preview.png";
 import abcsMediaPreview from "../assets/abcs-media-preview.png";
 import frontendPreview1 from "../assets/frontend-mentor-order.png";
+import kidePreview from "../assets/kide-preview.png";
 import PortfolioCard from "./PortfolioCard";
 
 export default function Projects() {
@@ -117,7 +118,7 @@ export default function Projects() {
                   alt="HR App preview"
                   width={1600}
                   height={900}
-                  className="h-full w-full rounded-lg p-4 object-cover"
+                  className="w-full h-auto rounded-lg p-4 object-cover aspect-video"
                 />
               </a>{" "}
             </Typography>
@@ -143,10 +144,10 @@ export default function Projects() {
           <PortfolioCard>
             <Typography variant="body2" gutterBottom>
               Practice project for recreating a WordPress site with a custom
-              theme. All credit to the original creators of the site, Alfons Oy,
-              whose designed I aimed to recreate. The project includes a custom
-              theme built with PHP and styled with CSS. Here is a link to the
-              original site that I recreated:{" "}
+              theme. All credit to the original creators of the site, Alfons
+              Digital, whose designed I aimed to recreate. The project includes
+              a custom theme built with PHP and styled with CSS. Here is a link
+              to the original site that I recreated:{" "}
               <a
                 href="https://www.abcsofmedia.com/"
                 target="_blank"
@@ -166,7 +167,36 @@ export default function Projects() {
                   alt="WordPress project preview"
                   width={1600}
                   height={900}
-                  className="h-full w-full rounded-lg object-cover p-4"
+                  className="w-full h-auto rounded-lg object-cover p-4 aspect-video"
+                />
+              </a>{" "}
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              Another Practice project for recreating a WordPress site with a
+              custom theme. All credit to the original creators of the site,
+              Alfons Digital, whose designed I aimed to recreate. The project
+              includes a custom theme built with PHP and styled with CSS. Here
+              is a link to the original site that I recreated:{" "}
+              <a
+                href="https://kirjallisuudenedistamiskeskus.fi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                KIRJALLISUUDEN EDISTÄMISKESKUS
+              </a>
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              <a
+                href="https://gleaming-tarsier-772e72.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={kidePreview}
+                  alt="WordPress project preview 2"
+                  width={1600}
+                  height={900}
+                  className="w-full h-auto rounded-lg object-cover p-4 aspect-video"
                 />
               </a>{" "}
             </Typography>
