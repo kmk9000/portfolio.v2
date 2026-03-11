@@ -9,6 +9,7 @@ import abcsMediaPreview from "../assets/abcs-media-preview.png";
 import frontendPreview1 from "../assets/frontend-mentor-order.png";
 import kidePreview from "../assets/kide-preview.png";
 import PortfolioCard from "./PortfolioCard";
+import ProjectPreview from "./ProjectPreview";
 
 export default function Projects() {
   const [value, setValue] = useState(0);
@@ -96,32 +97,12 @@ export default function Projects() {
         </Box>
         <CustomTabPanel value={value} index={0}>
           <PortfolioCard>
-            <Typography variant="body2" gutterBottom>
-              Simple React project made with MUI. Pulls data from a database,
-              allows the user to add an employee to the database, and also to
-              edit some of the submitted data on the fronted too. Backend may be
-              slow to load the first time, as it's using a free tier from
-              Render.com, so give it up to a minute to spin up, please. Feel
-              free to add an employee, edit the employee's name, and then
-              refresh the page to see the changes persist. Changes will not be
-              saved between spin ups of the free service, but it should work as
-              expected while the service is running.
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              <a
-                href="https://kmk9000.github.io/hrApp/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={hrPreview}
-                  alt="HR App preview"
-                  width={1600}
-                  height={900}
-                  className="w-full h-auto rounded-lg p-4 object-cover aspect-video"
-                />
-              </a>{" "}
-            </Typography>
+            <ProjectPreview
+              description="Simple React project made with MUI. Pulls data from a database, allows the user to add an employee to the database, and also to edit some of the submitted data on the frontend too. Backend may be slow to load the first time, as it is using a free tier from Render.com, so give it up to a minute to spin up, please. Feel free to add an employee, edit the employee's name, and then refresh the page to see the changes persist. Changes will not be saved between spin ups of the free service, but it should work as expected while the service is running."
+              previewUrl="https://kmk9000.github.io/hrApp/"
+              previewImage={hrPreview}
+              previewImageAlt="HR App preview"
+            />
             <Typography variant="body2">
               <a
                 href="https://github.com/kmk9000/hrApp"
@@ -142,94 +123,72 @@ export default function Projects() {
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
           <PortfolioCard>
-            <Typography variant="body2" gutterBottom>
-              Practice project for recreating a WordPress site with a custom
-              theme. All credit to the original creators of the site, Alfons
-              Digital, whose designed I aimed to recreate. The project includes
-              a custom theme built with PHP and styled with CSS. Here is a link
-              to the original site that I recreated:{" "}
-              <a
-                href="https://www.abcsofmedia.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                THE ABC BOOK OF MEDIA LITERACY
-              </a>
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              <a
-                href="https://inspiring-tarsier-f66f11.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={abcsMediaPreview}
-                  alt="WordPress project preview"
-                  width={1600}
-                  height={900}
-                  className="w-full h-auto rounded-lg object-cover p-4 aspect-video"
-                />
-              </a>{" "}
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              Another Practice project for recreating a WordPress site with a
-              custom theme. All credit to the original creators of the site,
-              Alfons Digital, whose designed I aimed to recreate. The project
-              includes a custom theme built with PHP and styled with CSS. Here
-              is a link to the original site that I recreated:{" "}
-              <a
-                href="https://kirjallisuudenedistamiskeskus.fi"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                KIRJALLISUUDEN EDISTÄMISKESKUS
-              </a>
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              <a
-                href="https://gleaming-tarsier-772e72.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={kidePreview}
-                  alt="WordPress project preview 2"
-                  width={1600}
-                  height={900}
-                  className="w-full h-auto rounded-lg object-cover p-4 aspect-video"
-                />
-              </a>{" "}
-            </Typography>
+            <ProjectPreview
+              description={
+                <>
+                  Practice project for recreating a WordPress site with a custom
+                  theme. All credit to the original creators of the site, Alfons
+                  Digital, whose design I aimed to recreate. The project
+                  includes a custom theme built with PHP and styled with CSS.
+                  Here is a link to the original site that I recreated:{" "}
+                  <a
+                    href="https://www.abcsofmedia.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    THE ABC BOOK OF MEDIA LITERACY
+                  </a>
+                </>
+              }
+              previewUrl="https://inspiring-tarsier-f66f11.netlify.app"
+              previewImage={abcsMediaPreview}
+              previewImageAlt="WordPress project preview"
+            />
+            <ProjectPreview
+              description={
+                <>
+                  Another practice project for recreating a WordPress site with
+                  a custom theme. All credit to the original creators of the
+                  site, Alfons Digital, whose design I aimed to recreate. The
+                  project includes a custom theme built with PHP and styled with
+                  CSS. Here is a link to the original site that I recreated:{" "}
+                  <a
+                    href="https://kirjallisuudenedistamiskeskus.fi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    KIRJALLISUUDEN EDISTAMISKESKUS
+                  </a>
+                </>
+              }
+              previewUrl="https://gleaming-tarsier-772e72.netlify.app"
+              previewImage={kidePreview}
+              previewImageAlt="WordPress project preview 2"
+            />
           </PortfolioCard>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <PortfolioCard>
-            <Typography variant="body2" gutterBottom>
-              CSS showcase work focused on layout, typography, and spacing.
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              This is just a screenshot of a Frontend Mentor challenge I
-              completed early on in my development journey. It was a great
-              learning experience for me, as it helped me to understand how to
-              approach a design and break it down into components, as well as
-              how to use CSS to achieve the desired layout and styling. Even
-              though it is very basic, it was a valuable project for me as I was
-              learning the basics of front-end development at the very
-              beginning.
-            </Typography>
-            <Typography
-              variant="body2"
-              gutterBottom
-              className="flex justify-center"
-            >
-              <img
-                src={frontendPreview1}
-                alt="CSS project preview"
-                width={1600}
-                height={1000}
-                className="mx-auto block h-auto w-full max-w-xl rounded-lg object-cover p-4"
-              />
-            </Typography>
+            <ProjectPreview
+              description={
+                <>
+                  This is a screenshot of a Frontend Mentor challenge I
+                  completed early in my development journey. It helped me learn
+                  how to approach a design, break it into components, and use
+                  CSS to achieve the intended layout and styling.{" "}
+                  <a
+                    href="https://www.frontendmentor.io/challenges/order-summary-component-QlPmajDUj"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View the original challenge
+                  </a>
+                </>
+              }
+              previewImage={frontendPreview1}
+              previewImageAlt="CSS project preview"
+              previewImageClassName="mx-auto block h-auto w-full max-w-xl rounded-lg object-cover p-4"
+            />
           </PortfolioCard>
         </CustomTabPanel>
       </Box>
