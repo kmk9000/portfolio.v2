@@ -75,12 +75,13 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="relative flex flex-col md:flex-row min-h-screen min-w-full bg-slate-950">
-        <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.16),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.14),transparent_35%),radial-gradient(circle_at_50%_80%,rgba(168,85,247,0.12),transparent_45%)]" />
+      <div className="relative flex flex-col md:flex-row min-h-screen min-w-full overflow-hidden bg-[#020817]">
+        <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_90%_60%_at_-5%_0%,rgba(56,189,248,0.22),transparent),radial-gradient(ellipse_60%_50%_at_105%_10%,rgba(139,92,246,0.2),transparent),radial-gradient(ellipse_50%_40%_at_50%_110%,rgba(6,182,212,0.14),transparent),radial-gradient(ellipse_30%_30%_at_80%_60%,rgba(59,130,246,0.1),transparent)]" />
+        <div className="pointer-events-none fixed inset-0 z-0 dot-grid-bg" />
         <div
           className="pointer-events-none fixed inset-0 z-0 transition duration-300"
           style={{
-            background: `radial-gradient(300px at ${mousePosition.x}px ${mousePosition.y}px, rgba(56, 189, 248, 0.2), transparent 75%)`,
+            background: `radial-gradient(380px at ${mousePosition.x}px ${mousePosition.y}px, rgba(56, 189, 248, 0.14), transparent 72%)`,
           }}
         />
         <Header

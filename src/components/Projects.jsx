@@ -64,22 +64,25 @@ export default function Projects() {
       <div id="projects-react" />
       <div id="projects-wordpress" />
       <div id="projects-css" />
-      <Typography
+      <div
         id="projects"
-        variant="h5"
-        gutterBottom
-        mt={3}
-        mb={1}
-        sx={{ scrollMarginTop: "96px" }}
+        className="mb-2 mt-10"
+        style={{ scrollMarginTop: "96px" }}
       >
-        Projects
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        This is the project section of my portfolio, showcasing my work in
-        React, WordPress, and CSS.
+        <div className="section-label mb-3">02 — PROJECTS</div>
+        <Typography
+          variant="h4"
+          className="mb-2 font-bold text-white"
+          sx={{ lineHeight: 1.2 }}
+        >
+          Selected work
+        </Typography>
+      </div>
+      <Typography variant="body2" gutterBottom className="mb-4 text-slate-400">
+        Showcasing work in React, WordPress, and CSS.
       </Typography>
       <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{ borderBottom: "1px solid rgba(255,255,255,0.08)", mb: 0.5 }}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -89,6 +92,23 @@ export default function Projects() {
             variant="scrollable"
             scrollButtons="auto"
             allowScrollButtonsMobile
+            sx={{
+              "& .MuiTab-root": {
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "rgba(148,163,184,0.7)",
+                minHeight: 44,
+                "&.Mui-selected": { color: "rgb(103,232,249)" },
+              },
+              "& .MuiTabs-indicator": {
+                background:
+                  "linear-gradient(to right, rgb(56,189,248), rgb(139,92,246))",
+                height: "2px",
+                borderRadius: "2px 2px 0 0",
+              },
+            }}
           >
             <Tab label="React/Javascript" disableRipple {...a11yProps(0)} />
             <Tab label="Wordpress/PHP" disableRipple {...a11yProps(1)} />

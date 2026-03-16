@@ -7,20 +7,22 @@ import PortfolioCard from "./PortfolioCard";
 export default function Main() {
   return (
     <div
-      className="main-container relative z-10 h-screen w-full scroll-auto overflow-auto border-white/10 bg-slate-800/60 px-6 py-8 text-slate-100 sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 lg:py-12 xl:w-3/4"
+      className="main-container relative z-10 h-screen w-full scroll-auto overflow-auto bg-transparent px-6 py-12 text-slate-100 sm:px-8 sm:py-12 md:flex-1 md:px-14 md:py-14 lg:px-20 lg:py-16"
       style={{ scrollPaddingTop: "96px" }}
     >
-      <Typography
-        id="about"
-        variant="h5"
-        sx={{ mx: "auto", scrollMarginTop: "96px" }}
-        gutterBottom
-      >
-        About
-      </Typography>
-      <div className="py-3">
+      <div id="about" className="mb-2" style={{ scrollMarginTop: "96px" }}>
+        <div className="section-label mb-3">01 — ABOUT</div>
+        <Typography
+          variant="h4"
+          className="mb-6 font-bold text-white"
+          sx={{ lineHeight: 1.2 }}
+        >
+          Who I am
+        </Typography>
+      </div>
+      <div className="pb-6">
         <PortfolioCard>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" gutterBottom className="text-slate-300">
             I am Kalle Koivuniemi and I am an aspiring front-end developer with
             a knack for crafting responsive and visually appealing web
             applications. With a strong foundation in HTML, CSS, and JavaScript,
@@ -31,15 +33,15 @@ export default function Main() {
             maintainable code and continuously learning new technologies to stay
             at the forefront of web development trends.
           </Typography>
-          <Typography variant="body1" gutterBottom>
-            This porfolio was made with React, Tailwind, and Material UI, and is
-            designed to be responsive and visually appealing. The project
+          <Typography variant="body1" gutterBottom className="text-slate-300">
+            This portfolio was made with React, Tailwind, and Material UI, and
+            is designed to be responsive and visually appealing. The project
             section includes tabs for different categories of projects, and each
             tab contains a description of the project and a preview image. The
             project section is also designed to be accessible, with proper ARIA
             attributes and keyboard navigation support.
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" gutterBottom className="text-slate-300">
             In my projects, I focus on accessibility, performance, and
             cross-browser compatibility to ensure that my applications are
             usable by a wide audience. I enjoy collaborating with designers and
@@ -51,66 +53,60 @@ export default function Main() {
         </PortfolioCard>
       </div>
       <Projects />
-      <Typography
+      <div
         id="contact"
-        variant="h5"
-        gutterBottom
-        sx={{ scrollMarginTop: "96px" }}
+        className="mt-10 mb-2"
+        style={{ scrollMarginTop: "96px" }}
       >
-        Contact
-      </Typography>
-      <div className="py-3">
-        <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="section-label mb-3">03 — CONTACT</div>
+        <Typography
+          variant="h4"
+          className="mb-6 font-bold text-white"
+          sx={{ lineHeight: 1.2 }}
+        >
+          Get in touch
+        </Typography>
+      </div>
+      <div className="pb-10">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <a
             href="mailto:kallekoivuniemi@gmail.com"
-            className="block"
+            className="block group"
             aria-label="Email link"
           >
             <PortfolioCard>
-              <Typography
-                variant="body1"
-                sx={{ color: "#cbd5e1" }}
-                className="flex items-center gap-2"
-              >
-                <MdEmail size={18} />
-                Email
-              </Typography>
+              <div className="flex items-center gap-3 text-slate-300 group-hover:text-cyan-300 transition-colors duration-200">
+                <MdEmail size={20} className="shrink-0 text-cyan-400" />
+                <span className="text-sm font-medium">Email me</span>
+              </div>
             </PortfolioCard>
           </a>
           <a
             href="https://github.com/kmk9000"
-            className="block"
+            className="block group"
             aria-label="GitHub link"
             target="_blank"
             rel="noopener noreferrer"
           >
             <PortfolioCard>
-              <Typography
-                variant="body1"
-                sx={{ color: "#cbd5e1" }}
-                className="flex items-center gap-2"
-              >
-                <FaGithub size={16} />
-                GitHub
-              </Typography>
+              <div className="flex items-center gap-3 text-slate-300 group-hover:text-cyan-300 transition-colors duration-200">
+                <FaGithub size={18} className="shrink-0 text-slate-300" />
+                <span className="text-sm font-medium">GitHub</span>
+              </div>
             </PortfolioCard>
           </a>
           <a
             href="https://www.linkedin.com/in/kalle-koivuniemi-946322144"
-            className="block"
+            className="block group"
             aria-label="LinkedIn link"
             target="_blank"
             rel="noopener noreferrer"
           >
             <PortfolioCard>
-              <Typography
-                variant="body1"
-                sx={{ color: "#cbd5e1" }}
-                className="flex items-center gap-2"
-              >
-                <FaLinkedin size={16} />
-                LinkedIn
-              </Typography>
+              <div className="flex items-center gap-3 text-slate-300 group-hover:text-cyan-300 transition-colors duration-200">
+                <FaLinkedin size={18} className="shrink-0 text-sky-400" />
+                <span className="text-sm font-medium">LinkedIn</span>
+              </div>
             </PortfolioCard>
           </a>
         </div>

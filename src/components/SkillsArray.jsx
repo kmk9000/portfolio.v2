@@ -68,7 +68,7 @@ export default function SkillsArray({ onSkillClick }) {
                 onSkillClick(event, targetHash);
               }
             }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200 transition-colors duration-200 hover:bg-cyan-300/20"
+            className="inline-flex items-center gap-1.5 rounded-full border border-slate-600/50 bg-slate-800/60 px-3 py-1 text-xs font-semibold text-slate-300 transition-all duration-200 hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-cyan-300"
           >
             <SkillIcon size={14} aria-hidden="true" />
             <span>{skill}</span>

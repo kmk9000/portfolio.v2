@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export default function PortfolioCard({ children }) {
   return (
-    <div className="portfolio-card-glow rounded-xl border border-white/5 bg-black/20 px-6 py-4 shadow-2xl">
+    <div className="portfolio-card-glow rounded-2xl rounded-tr-none bg-slate-950/60 px-6 py-5 backdrop-blur-sm">
       {children}
     </div>
   );

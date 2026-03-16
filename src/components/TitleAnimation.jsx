@@ -6,14 +6,15 @@ export default function TitleAnimation({
   duration = 3000,
   variant = "h6",
   className,
+  showCursor = false,
 }) {
   const [typedText, setTypedText] = useState("");
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
-    if (!text) {
-      setTypedText("");
-      return;
-    }
+    setTypedText("");
+    setDone(false);
+    if (!text) return;
 
     const intervalDuration = duration / text.length;
     let currentIndex = 0;
@@ -24,6 +25,7 @@ export default function TitleAnimation({
 
       if (currentIndex >= text.length) {
         window.clearInterval(intervalId);
+        setDone(true);
       }
     }, intervalDuration);
 
@@ -35,6 +37,11 @@ export default function TitleAnimation({
   return (
     <Typography variant={variant} className={className}>
       {typedText}
+      {showCursor && !done && (
+        <span className="typing-cursor-char" aria-hidden="true">
+          |
+        </span>
+      )}
     </Typography>
   );
 }
