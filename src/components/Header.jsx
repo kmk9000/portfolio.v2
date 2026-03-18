@@ -3,6 +3,7 @@ import SkillsArray from "./SkillsArray";
 import TitleAnimation from "./TitleAnimation";
 import MobileMenu from "./MobileMenu";
 import { NAV_ITEMS } from "../constants/navigation";
+import { SCROLL_OFFSET_PX } from "../constants/layout";
 
 export default function Header({ activeSection, setActiveSection }) {
   const mobileVisibilityClass =
@@ -10,38 +11,45 @@ export default function Header({ activeSection, setActiveSection }) {
       ? "flex max-h-screen translate-y-0 opacity-100 p-6 border-b border-white/8"
       : "flex max-h-0 -translate-y-4 opacity-0 pointer-events-none border-0 p-0 md:pointer-events-auto";
 
+  const scrollMainContainerToId = (id) => {
+    const mainContainer = document.querySelector(".main-container");
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+    if (mainContainer) {
+      const containerRect = mainContainer.getBoundingClientRect();
+      const elementRect = element.getBoundingClientRect();
+      const nextTop =
+        mainContainer.scrollTop +
+        (elementRect.top - containerRect.top) -
+        SCROLL_OFFSET_PX;
+
+      mainContainer.scrollTo({
+        top: Math.max(0, nextTop),
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+      return;
+    }
+
+    element.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  };
+
   const handleClick = (section) => {
     setActiveSection(section);
-    const sectionElement = document.getElementById(section);
-    if (sectionElement) {
-      sectionElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    scrollMainContainerToId(section);
   };
 
   const handleSkillClick = (event, targetHash) => {
     event.preventDefault();
 
     setActiveSection("projects");
-    const mainContainer = document.querySelector(".main-container");
-    const projectsElement = document.getElementById("projects");
-    if (mainContainer && projectsElement) {
-      const containerRect = mainContainer.getBoundingClientRect();
-      const projectsRect = projectsElement.getBoundingClientRect();
-      const nextTop =
-        mainContainer.scrollTop + (projectsRect.top - containerRect.top);
-      mainContainer.scrollTo({
-        top: Math.max(0, nextTop),
-        behavior: "smooth",
-      });
-    } else if (projectsElement) {
-      projectsElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
 
     const projectTabIndexByHash = {
       "#projects-react": 0,
@@ -52,6 +60,21 @@ export default function Header({ activeSection, setActiveSection }) {
     window.dispatchEvent(
       new CustomEvent("projects:tabchange", { detail: { tabIndex } }),
     );
+
+    const targetId = (targetHash || "#projects").replace(/^#/, "");
+    const scrollId =
+      targetId === "projects-react" ||
+      targetId === "projects-wordpress" ||
+      targetId === "projects-css"
+        ? targetId
+        : "projects";
+
+    // Wait for React + MUI Tabs to commit layout before measuring/scrolling.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollMainContainerToId(scrollId);
+      });
+    });
   };
 
   const navLinkClass =

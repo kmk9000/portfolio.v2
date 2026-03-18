@@ -10,6 +10,7 @@ import frontendPreview1 from "../assets/frontend-mentor-order.png";
 import kidePreview from "../assets/kide-preview.png";
 import PortfolioCard from "./PortfolioCard";
 import ProjectPreview from "./ProjectPreview";
+import { SCROLL_OFFSET_PX } from "../constants/layout";
 
 export default function Projects() {
   const [value, setValue] = useState(0);
@@ -61,13 +62,22 @@ export default function Projects() {
   }
   return (
     <div className="z-0">
-      <div id="projects-react" />
-      <div id="projects-wordpress" />
-      <div id="projects-css" />
+      <div
+        id="projects-react"
+        style={{ scrollMarginTop: `${SCROLL_OFFSET_PX}px` }}
+      />
+      <div
+        id="projects-wordpress"
+        style={{ scrollMarginTop: `${SCROLL_OFFSET_PX}px` }}
+      />
+      <div
+        id="projects-css"
+        style={{ scrollMarginTop: `${SCROLL_OFFSET_PX}px` }}
+      />
       <div
         id="projects"
         className="mb-2 mt-10"
-        style={{ scrollMarginTop: "96px" }}
+        style={{ scrollMarginTop: `${SCROLL_OFFSET_PX}px` }}
       >
         <div className="section-label mb-3">02 — PROJECTS</div>
         <Typography
