@@ -40,7 +40,7 @@ export default function ScrollToTopButton() {
           zIndex: 1000,
         }}
       >
-        <Fab size="medium" aria-label="scroll back to top" color="primary">
+        <Fab size="medium" aria-label="scroll back to top" className="hero-name-gradient">
           <MdKeyboardArrowUp size={24} />
         </Fab>
       </Box>
