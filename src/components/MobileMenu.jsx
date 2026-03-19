@@ -4,12 +4,13 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { MdMenu } from "react-icons/md";
+import { MdClose, MdMenu } from "react-icons/md";
 import { useEffect, useState } from "react";
 
-export default function MobileMenu({ navItems, onItemClick }) {
+export default function MobileMenu({ navItems, onItemClick, activeSection }) {
   const isMobile = useMediaQuery("(max-width:767.95px)");
   const [anchorElNav, setAnchorElNav] = useState(null);
+  const isOpen = Boolean(anchorElNav);
 
   useEffect(() => {
     if (!isMobile && anchorElNav) {
@@ -21,7 +22,12 @@ export default function MobileMenu({ navItems, onItemClick }) {
     return null;
   }
 
-  const handleOpenNavMenu = (event) => {
+  const handleToggleNavMenu = (event) => {
+    if (isOpen) {
+      setAnchorElNav(null);
+      return;
+    }
+
     setAnchorElNav(event.currentTarget);
   };
 
@@ -39,8 +45,8 @@ export default function MobileMenu({ navItems, onItemClick }) {
       <Box
         sx={{
           position: "absolute",
-          top: 8,
-          right: 8,
+          top: 0,
+          right: 0,
           display: "flex",
         }}
       >
@@ -49,10 +55,11 @@ export default function MobileMenu({ navItems, onItemClick }) {
           aria-label="navigation menu"
           aria-controls="menu-appbar"
           aria-haspopup="true"
-          onClick={handleOpenNavMenu}
+          aria-expanded={isOpen ? "true" : undefined}
+          onClick={handleToggleNavMenu}
           color="inherit"
         >
-          <MdMenu size={24} />
+          {isOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
         </IconButton>
       </Box>
 
@@ -68,7 +75,7 @@ export default function MobileMenu({ navItems, onItemClick }) {
           vertical: "top",
           horizontal: "right",
         }}
-        open={Boolean(anchorElNav)}
+        open={isOpen}
         onClose={handleCloseNavMenu}
         sx={{
           "& .MuiPaper-root": {
@@ -83,8 +90,27 @@ export default function MobileMenu({ navItems, onItemClick }) {
         }}
       >
         {navItems.map((item) => (
-          <MenuItem key={item.id} onClick={() => handleItemClick(item.id)}>
-            <Typography sx={{ textAlign: "center", fontSize:"1.1rem"}}>{item.label}</Typography>
+          <MenuItem
+            key={item.id}
+            selected={activeSection === item.id}
+            onClick={() => handleItemClick(item.id)}
+            sx={{
+              minHeight: 44,
+              px: 2,
+              "&.Mui-selected": {
+                backgroundColor: "rgba(34, 211, 238, 0.14)",
+              },
+              "&.Mui-selected:hover": {
+                backgroundColor: "rgba(34, 211, 238, 0.2)",
+              },
+            }}
+          >
+            <Typography
+              sx={{ textAlign: "center", fontSize: "1rem", fontWeight: 500 }}
+              aria-current={activeSection === item.id ? "page" : undefined}
+            >
+              {item.label}
+            </Typography>
           </MenuItem>
         ))}
       </Menu>
