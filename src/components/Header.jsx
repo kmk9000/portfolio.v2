@@ -12,28 +12,12 @@ export default function Header({ activeSection, setActiveSection }) {
       : "flex max-h-0 -translate-y-4 opacity-0 pointer-events-none border-0 p-0 md:pointer-events-auto";
 
   const scrollMainContainerToId = (id) => {
-    const mainContainer = document.querySelector(".main-container");
     const element = document.getElementById(id);
     if (!element) return;
 
     const prefersReducedMotion =
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-
-    if (mainContainer) {
-      const containerRect = mainContainer.getBoundingClientRect();
-      const elementRect = element.getBoundingClientRect();
-      const nextTop =
-        mainContainer.scrollTop +
-        (elementRect.top - containerRect.top) -
-        SCROLL_OFFSET_PX;
-
-      mainContainer.scrollTo({
-        top: Math.max(0, nextTop),
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-      });
-      return;
-    }
 
     element.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
@@ -61,18 +45,10 @@ export default function Header({ activeSection, setActiveSection }) {
       new CustomEvent("projects:tabchange", { detail: { tabIndex } }),
     );
 
-    const targetId = (targetHash || "#projects").replace(/^#/, "");
-    const scrollId =
-      targetId === "projects-react" ||
-      targetId === "projects-wordpress" ||
-      targetId === "projects-css"
-        ? targetId
-        : "projects";
-
     // Wait for React + MUI Tabs to commit layout before measuring/scrolling.
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        scrollMainContainerToId(scrollId);
+        scrollMainContainerToId("projects");
       });
     });
   };
