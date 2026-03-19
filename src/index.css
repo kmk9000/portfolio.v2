@@ -37,14 +37,36 @@ p {
   background: rgba(103, 232, 249, 0.5);
 }
 
-.dot-grid-bg {
+/* .dot-grid-bg {
   background-image: radial-gradient(
     circle,
     rgba(148, 163, 184, 0.07) 1px,
     transparent 1px
   );
   background-size: 28px 28px;
+} */
+
+/* Crosshatch */
+.dot-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cline x1='0' y1='20' x2='20' y2='0' stroke='rgba(148,163,184,0.22)' stroke-width='0.7'/%3E%3Cline x1='0' y1='0' x2='20' y2='20' stroke='rgba(148,163,184,0.22)' stroke-width='0.7'/%3E%3C/svg%3E");
+  background-size: 20px 20px;
+  background-repeat: repeat;
 }
+
+
+/* Plus / cross grid */
+/* .dot-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cline x1='14' y1='9' x2='14' y2='19' stroke='rgba(148,163,184,0.35)' stroke-width='0.8' stroke-linecap='round'/%3E%3Cline x1='9' y1='14' x2='19' y2='14' stroke='rgba(148,163,184,0.35)' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 28px 28px;
+  background-repeat: repeat;
+} */
+
+/* Circuits */
+/* .dot-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cline x1='8' y1='8' x2='32' y2='8' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Cline x1='32' y1='8' x2='32' y2='32' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Cline x1='32' y1='32' x2='56' y2='32' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Cline x1='56' y1='32' x2='56' y2='56' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Cline x1='8' y1='48' x2='8' y2='8' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Cline x1='8' y1='48' x2='32' y2='48' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Cline x1='48' y1='8' x2='48' y2='20' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Cline x1='40' y1='56' x2='56' y2='56' stroke='rgba(148,163,184,0.28)' stroke-width='0.7'/%3E%3Ccircle cx='8' cy='8' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='32' cy='8' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='32' cy='32' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='56' cy='32' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='8' cy='48' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='56' cy='56' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='48' cy='8' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='32' cy='48' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='48' cy='20' r='2' fill='rgba(148,163,184,0.45)'/%3E%3Ccircle cx='40' cy='56' r='2' fill='rgba(148,163,184,0.45)'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+  background-repeat: repeat;
+} */
 
 .portfolio-card-glow {
   position: relative;

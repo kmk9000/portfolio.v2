@@ -92,12 +92,11 @@ export default function Projects() {
         Showcasing work in React, WordPress, and CSS.
       </Typography>
       <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: "1px solid rgba(255,255,255,0.08)", mb: 0.5 }}>
+        <Box >
           <Tabs
             value={value}
             onChange={handleChange}
             aria-label="tabs for projects"
-            textColor="inherit"
             indicatorColor="primary"
             variant="scrollable"
             scrollButtons="auto"
@@ -108,7 +107,7 @@ export default function Projects() {
                 fontWeight: 700,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "rgba(148,163,184,0.7)",
+                color: "#FFFFFF",
                 minHeight: 44,
                 "&.Mui-selected": { color: "rgb(103,232,249)" },
               },
