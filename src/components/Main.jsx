@@ -46,15 +46,6 @@ export default function Main() {
             project section is also designed to be accessible, with proper ARIA
             attributes and keyboard navigation support.
           </Typography>
-          <Typography variant="body1" gutterBottom className="text-slate-300">
-            In my projects, I focus on accessibility, performance, and
-            cross-browser compatibility to ensure that my applications are
-            usable by a wide audience. I enjoy collaborating with designers and
-            back-end developers to bring ideas to life and create cohesive
-            digital products. Whether it's building a simple landing page or a
-            complex single-page application, I am committed to delivering
-            high-quality work that meets the needs of users and clients alike.
-          </Typography>
         </PortfolioCard>
       </div>
       <Projects />
