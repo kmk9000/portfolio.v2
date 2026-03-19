@@ -72,15 +72,19 @@ export default function MobileMenu({ navItems, onItemClick }) {
         onClose={handleCloseNavMenu}
         sx={{
           "& .MuiPaper-root": {
-            backgroundColor: "rgba(15, 23, 42, 0.95)",
-            border: "1px solid rgba(255,255,255,0.1)",
+            backgroundColor: "rgba(2, 6, 23, 0.60)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            borderRadius: "0.5rem",
+            border: "1px solid rgba(255,255,255,0.08)",
+            boxShadow: "0 0 20px rgba(99, 102, 241, 0.15)",
             color: "#e2e8f0",
           },
         }}
       >
         {navItems.map((item) => (
           <MenuItem key={item.id} onClick={() => handleItemClick(item.id)}>
-            <Typography sx={{ textAlign: "center" }}>{item.label}</Typography>
+            <Typography sx={{ textAlign: "center", fontSize:"1.1rem"}}>{item.label}</Typography>
           </MenuItem>
         ))}
       </Menu>
