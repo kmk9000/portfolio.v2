@@ -26,6 +26,11 @@ p {
 .main-container::-webkit-scrollbar {
   width: 3px;
 }
+
+.main-container {
+  overscroll-behavior: contain;
+}
+
 .main-container::-webkit-scrollbar-track {
   background: transparent;
 }

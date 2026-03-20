@@ -75,7 +75,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="relative flex flex-col md:flex-row min-h-screen min-w-full overflow-hidden bg-[#020817]">
+      <div className="relative flex h-dvh min-h-screen min-w-full flex-col overflow-hidden bg-[#020817] md:flex-row">
         <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_90%_60%_at_-5%_0%,rgba(56,189,248,0.22),transparent),radial-gradient(ellipse_60%_50%_at_105%_10%,rgba(139,92,246,0.2),transparent),radial-gradient(ellipse_50%_40%_at_50%_110%,rgba(6,182,212,0.14),transparent),radial-gradient(ellipse_30%_30%_at_80%_60%,rgba(59,130,246,0.1),transparent)]" />
         <div className="pointer-events-none fixed inset-0 z-0 dot-grid-bg" />
         <div

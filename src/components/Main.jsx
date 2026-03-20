@@ -8,7 +8,7 @@ import { SCROLL_OFFSET_PX } from "../constants/layout";
 export default function Main() {
   return (
     <div
-      className="main-container relative z-10 h-screen w-full scroll-auto overflow-auto bg-transparent px-6 py-12 text-slate-100 sm:px-8 sm:py-12 md:flex-1 md:px-14 md:py-14 lg:px-20 lg:py-16"
+      className="main-container relative z-10 min-h-0 w-full flex-1 scroll-auto overflow-auto bg-transparent px-6 py-6 text-slate-100 sm:px-8 sm:py-12 md:px-14 md:py-14 lg:px-20 lg:py-16"
       style={{ scrollPaddingTop: `${SCROLL_OFFSET_PX}px` }}
     >
       <div
