@@ -156,6 +156,15 @@ p {
   }
 }
 
+.skill-chip-shell {
+  animation: border-shell-breathe 4.6s ease-in-out infinite;
+}
+
+.skill-chip-shell:hover,
+.skill-chip-shell:focus-visible {
+  animation-play-state: paused;
+}
+
 .section-label {
   font-family: ui-monospace, "Courier New", monospace;
   font-size: 0.68rem;
@@ -171,24 +180,37 @@ p {
 .sidebar-gradient-border::after {
   content: "";
   position: absolute;
-  top: 0;
+  left: 0;
   right: 0;
-  height: 100%;
-  width: 1px;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
   background: linear-gradient(
-    to bottom,
+    to right,
     transparent 0%,
     rgba(56, 189, 248, 0.55) 25%,
     rgba(139, 92, 246, 0.45) 75%,
     transparent 100%
   );
-  display: none;
+  display: block;
   pointer-events: none;
 }
 
 @media (min-width: 768px) {
   .sidebar-gradient-border::after {
-    display: block;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(56, 189, 248, 0.55) 25%,
+      rgba(139, 92, 246, 0.45) 75%,
+      transparent 100%
+    );
   }
 }
 

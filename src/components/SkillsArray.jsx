@@ -68,9 +68,13 @@ export default function SkillsArray({ onSkillClick }) {
                 onSkillClick(event, targetHash);
               }
             }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-slate-600/50 bg-slate-800/60 px-3 py-1 text-xs font-semibold text-slate-300 transition-all duration-200 hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-cyan-300"
+            className="skill-chip-shell group inline-flex items-center gap-1.5 rounded-full border border-slate-500/60 bg-slate-800/60 px-3 py-1 text-xs font-semibold text-slate-200 shadow-sm shadow-slate-950/40 transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-300/60 hover:bg-cyan-400/15 hover:text-slate-100 hover:shadow-md hover:shadow-cyan-900/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40"
           >
-            <SkillIcon size={14} aria-hidden="true" />
+            <SkillIcon
+              size={14}
+              aria-hidden="true"
+              className="text-cyan-300 transition-colors duration-200 group-hover:text-cyan-200"
+            />
             <span>{skill}</span>
           </button>
         );

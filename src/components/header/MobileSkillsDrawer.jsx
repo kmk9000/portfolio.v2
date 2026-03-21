@@ -45,9 +45,13 @@ export default function MobileSkillsDrawer({
                 onClick={(event) => {
                   onSkillClick(event, skill.targetHash);
                 }}
-                className="inline-flex h-14 flex-col items-center justify-center rounded-xl border border-slate-600/50 bg-slate-800/60 px-1 text-slate-300 transition-all duration-200 hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-cyan-300"
+                className="skill-chip-shell group inline-flex h-14 flex-col items-center justify-center rounded-xl border border-slate-500/60 bg-slate-800/60 px-1 text-slate-200 shadow-sm shadow-slate-950/40 transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-300/60 hover:bg-cyan-400/15 hover:text-slate-100 hover:shadow-md hover:shadow-cyan-900/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40"
               >
-                <SkillIcon size={14} aria-hidden="true" />
+                <SkillIcon
+                  size={14}
+                  aria-hidden="true"
+                  className="text-cyan-300 transition-colors duration-200 group-hover:text-cyan-200"
+                />
                 <span className="mt-1 truncate text-[0.6rem] font-semibold leading-none">
                   {skill.label}
                 </span>

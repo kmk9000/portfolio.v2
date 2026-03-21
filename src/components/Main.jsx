@@ -63,7 +63,7 @@ export default function Main() {
           Get in touch
         </Typography>
       </div>
-      <div className="pb-10">
+      <div className="pb-6">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <a
             href="mailto:kallekoivuniemi@gmail.com"

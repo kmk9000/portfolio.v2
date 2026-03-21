@@ -16,9 +16,9 @@ export default function DesktopHeader({
     "group flex items-center gap-4 text-slate-400 transition-all duration-300 hover:text-cyan-300";
   const navLineClass =
     "h-px origin-left transform transition-all duration-300";
-  const navLineActiveClass = "w-20 bg-cyan-400";
+  const navLineActiveClass = "w-28 bg-cyan-400";
   const navLineInactiveClass =
-    "w-10 bg-slate-600 group-hover:w-16 group-hover:bg-cyan-400/60";
+    "w-16 bg-slate-600 group-hover:w-24 group-hover:bg-cyan-400/60";
   const navLabelClass =
     "flex items-center text-xs font-semibold tracking-[0.15em] uppercase py-1";
 
